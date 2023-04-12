@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { UserHomeComponent } from './user-home/user-home.component';
@@ -18,6 +18,8 @@ import { NominationFormComponent } from './units/nomination-form/nomination-form
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     UserRoutingModule
   ]
 })

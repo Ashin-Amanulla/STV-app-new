@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 import { positions } from 'src/assets/data';
 @Component({
   selector: 'app-nomination-form',
@@ -9,8 +10,16 @@ import { positions } from 'src/assets/data';
 export class NominationFormComponent {
 
   position: any
-  
-  constructor(private router:Router){}
+  myFormGroup: FormGroup;
+
+  constructor(private router: Router) {
+    this.myFormGroup = new FormGroup({
+      name: new FormControl(''),
+      desc: new FormControl(''),
+      img: new FormControl(''),
+      position: new FormControl('')
+    });
+  }
 
   ngOnInit() { 
     this.position = positions
@@ -21,7 +30,7 @@ export class NominationFormComponent {
   }
 
   submit() {
-    
+    console.log(this.myFormGroup.value);
   }
 
 }
