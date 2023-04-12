@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { UserHomeComponent } from './user-home/user-home.component';
-import { CardComponent } from 'src/app/units/card/card.component';
+import { CardComponent } from './units/card/card.component';
+import { CandidateComponent } from './units/candidate/candidate.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     UserHomeComponent,
     CardComponent,
+    CandidateComponent,
   ],
   imports: [
     CommonModule,

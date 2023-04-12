@@ -1,0 +1,43 @@
+.flexDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    h3{
+        cursor: pointer;
+        :hover{
+            color: #000;
+        }
+    }
+}
+
+.note{
+    background-color: antiquewhite;
+    margin: 0 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    p{
+        margin-bottom: 2px;
+    }
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin: 30px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+  }
+  table th,
+  table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
