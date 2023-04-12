@@ -9,8 +9,8 @@
 <div class="row aln-center" style="margin: 20px">
   <div class="col-4 col-6-medium col-12-small" *ngFor="let candidate of data">
     <!-- Feature -->
-    <section (click)="addto(candidate.name)" style="cursor: pointer">
-      <a class="image featured"
+    <section>
+      <a class="image featured" (click)="addto(candidate.name)" style="cursor: pointer"
         ><img src="{{ candidate.imageUrl }}" alt=""
       /></a>
       <header>
@@ -21,6 +21,8 @@
       </p>
     </section>
   </div>
+</div>
+<div class="center">
   <a class="button icon solid fa-circle-dot" style="margin-top: 10px; cursor: pointer;" (click)="abstain()">abstain</a>
 </div>
 <div class="note">
