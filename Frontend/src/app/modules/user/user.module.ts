@@ -6,6 +6,7 @@ import { UserComponent } from './user.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { CardComponent } from './units/card/card.component';
 import { CandidateComponent } from './units/candidate/candidate.component';
+import { NominationFormComponent } from './units/nomination-form/nomination-form.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { CandidateComponent } from './units/candidate/candidate.component';
     UserHomeComponent,
     CardComponent,
     CandidateComponent,
+    NominationFormComponent,
   ],
   imports: [
     CommonModule,

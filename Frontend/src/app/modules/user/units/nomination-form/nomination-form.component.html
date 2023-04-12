@@ -1,0 +1,34 @@
+<h3 style="text-align: center; margin: 20px 0" (click)="goBack()">
+    <span class="icon solid fa-left-long"></span><strong>Go back</strong>
+</h3>
+<div class="nomination-form">
+    <div class="left-side">
+      <img src="../../../../../assets/images/nom.svg" alt="Nomination Image">
+    </div>
+    <div class="right-side">
+      <h2>Nominate Yourself</h2>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter the nominee's name" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" placeholder="Enter a brief description about the nominee" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+        <div class="form-group">
+            <label for="position">Position</label>
+            <select id="position" name="position" required>
+              <option value="">Select a position  </option>
+              <option value="{{p}}" *ngFor="let p of position">{{p}}</option>
+            </select>
+          </div>
+        <button type="submit" (click)="submit()">Submit</button>
+      </form>
+    </div>
+</div>
+  
