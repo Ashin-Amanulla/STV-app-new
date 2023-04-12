@@ -10,4 +10,7 @@ export class CardComponent {
   ngOnInit(): void { 
     this.positions = positions
   }
+  goto(position:string) {
+    console.log(position);
+  }
 }
