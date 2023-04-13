@@ -1,0 +1,14 @@
+<div class="container date">
+    <div>
+        <label for="startDate">Start date:</label>
+        <input type="date" id="startDate" name="startDate" [(ngModel)]="startDate">
+    </div>
+    <br>
+    <div>
+        <label for="endDate">End date:</label>
+        <input type="date" id="endDate" name="endDate" [(ngModel)]="endDate">
+    </div>
+</div>
+<div style="margin-top: 20px;">
+    <button type="submit" (click)="submit()">Submit</button>
+</div>
