@@ -1,0 +1,20 @@
+<div class="table-responsive">
+    <table>
+      <thead style="background-color: #ed786a;">
+        <tr>
+          <th style="text-align: center;">Rank</th>
+          <th style="text-align: center;">Name</th>
+          <th style="text-align: center;">Position</th>
+          <th style="text-align: center;">Vote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let res of data; let i=index">
+          <td>{{ i+1 }}</td>
+          <td>{{ res.name }}</td>
+          <td>{{ res.desc }}</td>
+          <td>{{getRandomNumber()}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

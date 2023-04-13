@@ -1,0 +1,15 @@
+.flexDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    h3{
+        cursor: pointer;
+        :hover{
+            color: #000;
+        }
+    }
+}
+
+.featured,p,section{
+    margin: 0 !important;
+}
