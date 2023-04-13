@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-home',
@@ -7,6 +8,25 @@ import { Component } from '@angular/core';
 })
 export class UserHomeComponent {
 
+  navClick: boolean = false;
 
-  logout(){}
+  constructor(private router:Router){}
+
+  showNav() {
+    this.navClick = !this.navClick;
+  }
+  
+  scroll(el: HTMLElement) {
+  
+    if(this.navClick){
+      this.navClick = false;
+    }
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+
+  logout() {
+    this.router.navigate(['/'])
+  }
+
 }
