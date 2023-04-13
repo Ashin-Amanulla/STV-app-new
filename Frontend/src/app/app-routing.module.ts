@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
+import { PageNotFoundComponent } from './units/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,8 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule),
    },
+     // ... other routes ...
+  { path: '**', pathMatch:'full',component:PageNotFoundComponent },
 ];
 
 @NgModule({

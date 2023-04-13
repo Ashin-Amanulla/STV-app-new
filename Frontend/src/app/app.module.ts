@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
+import { PageNotFoundComponent } from './units/page-not-found/page-not-found.component';
 
 
 
@@ -13,6 +14,7 @@ import { LoginComponent } from './modules/login/login.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
