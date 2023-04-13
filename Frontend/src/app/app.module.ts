@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
-import { PageNotFoundComponent } from './units/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -15,10 +16,12 @@ import { PageNotFoundComponent } from './units/page-not-found/page-not-found.com
     HomeComponent,
     LoginComponent,
     PageNotFoundComponent,
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

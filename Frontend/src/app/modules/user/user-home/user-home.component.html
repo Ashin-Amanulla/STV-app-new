@@ -1,339 +1,58 @@
 <div id="page-wrapper">
-    <!-- Header -->
-    <section id="header">
-      <div class="container">
-        <!-- Logo -->
-        <h1 id="logo"><a routerLink="/">&ldquo; Vote today for a better tomorrow &rdquo;</a></h1>
-        <p>Leadership is not about being in charge. It's about taking care of
-          those in your charge.</p>
-  
-        <!-- Nav -->
-        <nav id="nav">
-          <ul>
-            <li>
-              <a class="icon solid fa-home" routerLink="/user"><span>Home</span></a>
-            </li>
-  
-            <li>
-              <a class="icon solid fa-volume-high"
-                ><span>Voting explained</span></a
-              >
-            </li>
-            <!-- <li><a class="icon solid fa-retweet" href="right-sidebar.html"><span>Nomintation</span></a></li> -->
-            <li>
-              <a class="icon solid fa-right-to-bracket" (click)="logout()"
-                ><span>Logout</span></a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </section>
-  
-    <!-- Features -->
-    <section id="features">
-      <div class="container">
-        <header>
-          <h2><strong>Leadership Roles</strong> in Elections</h2>
-        </header>
-        <app-card></app-card>
-      </div>
-    </section>
-  
-    <!-- Banner -->
-    <section id="banner" >
-      <div class="container">
-        <p>
-          Use this space for <strong>profound thoughts</strong>.<br />
-          Or an enormous ad. Whatever.
-        </p>
-      </div>
-    </section>
-  
-    <!-- Main -->
-    <section id="main" #voting>
-      <div class="container">
-        <div class="row">
-          <!-- Content -->
-          <div id="content" class="col-8 col-12-medium">
-            <!-- Post -->
-            <article class="box post">
-              <header>
-                <h2>
-                  <a
-                    >Demystifying the 
-                    <strong>Voting Process</strong><br /></a
-                  >
-                </h2>
-              </header>
-              <a class="image featured"
-                ><iframe width="760" height="330" src="https://www.youtube.com/embed/_QstnZjkFEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></a>
-              <h3>Here at Roehampton, we use a <strong>Single Transferable Voting</strong> system as we
-                feel this is the most representative to our student body</h3>
-              <p>
-                Most elections will use the <strong>'First Past The Post'</strong> method whereby the candidate with the most votes is declared the winner.
-                Using a single transferable vote, you are able to select your candidates in order of preference, Ranking them from most to least favoured. Therefore, your voice is always represented no matter what happens.
-                Candidates are required to receive at least 50% of the votes cast and if no candidate has received this margin in the first round of voting, the candidate with the least votes is removed. The votes cast will then be awarded to the person you have voted as your second favourite.
-                Candidates will be removed and their votes split until a clear majority has been decided for one candidate.
-                This means that even if your most favoured candidate is removed in the early rounds, your voice is still represented and can create an influence on the overall outcome.
-              </p>
-              <ul class="actions">
-                <li>
-                  <a class="button icon solid  fa-square-poll-vertical"
-                    >Vote now</a
-                  >
-                </li>
-              </ul>
-            </article>
-  
-            <!-- Post -->
-            <article class="box post">
-              <header>
-                <h2>
-                  <a href="#"
-                    >By the way, many thanks to <strong>regularjane</strong> for
-                    these awesome demo photos</a
-                  >
-                </h2>
-              </header>
-              <a href="#" class="image featured"
-                ><img src="../assets/images/pic05.jpg" alt=""
-              /></a>
-              <h3>You should probably check out her work</h3>
-              <p>
-                Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-                ligula vel quam viverra sit amet mollis tortor congue. Sed quis
-                mauris sit amet magna accumsan tristique. Curabitur leo nibh,
-                rutrum eu malesuada in, tristique at erat lorem ipsum dolor sit
-                amet lorem ipsum sed consequat consequat magna tempus lorem ipsum
-                consequat Phasellus laoreet massa id in, tristique at erat lorem
-                ipsum dolor sit amet lorem ipsum sed consequat magna tempus
-                veroeros lorem sed tempus aliquam lorem ipsum veroeros consequat
-                magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit
-                amet mollis tortor congue. Sed quis mauris sit amet magna accumsan
-                tristique. Curabitur leo nibh, rutrum malesuada.
-              </p>
-              <p>
-                Erat lorem ipsum veroeros consequat magna tempus lorem ipsum
-                consequat Phasellus laoreet massa id justo mattis pharetra. Fusce
-                suscipit ligula vel quam viverra sit amet mollis tortor congue.
-                Sed quis mauris sit amet magna accumsan tristique. Curabitur leo
-                nibh, rutrum eu malesuada in, tristique at erat. Curabitur leo
-                nibh, rutrum eu malesuada in, tristique at erat lorem ipsum dolor
-                sit amet lorem ipsum sed consequat magna tempus veroeros lorem sed
-                tempus aliquam lorem ipsum veroeros consequat magna tempus.
-              </p>
-              <ul class="actions">
-                <li>
-                  <a class="button icon solid fa-file"
-                    >Continue Reading</a
-                  >
-                </li>
-              </ul>
-            </article>
-          </div>
-  
-          <!-- Sidebar -->
-          <div id="sidebar" class="col-4 col-12-medium">
-            <!-- Excerpts -->
-            <section>
-              <ul class="divided">
-                <li>
-                  <!-- Excerpt -->
-                  <article class="box excerpt">
-                    <header>
-                      <span class="date">July 30</span>
-                      <h3><a href="#">Nomination</a></h3>
-                    </header>
-                    <p>
-                      Lorem ipsum dolor odio facilisis convallis. Etiam non nunc
-                      vel est suscipit convallis non id orci lorem ipsum sed magna
-                      consequat feugiat lorem dolore.
-                   
-                    </p>
-                    <ul class="actions">
-                      <li>
-                        <a routerLink="/user/nomination" class="button icon solid fa-file"
-                          >Nominate Yourself</a
-                        >
-                      </li>
-                    </ul>
-                  </article>
-                </li>
-                <li>
-                  <!-- Excerpt -->
-                  <article class="box excerpt">
-                    <header>
-                      <span class="date">July 28</span>
-                      <h3><a href="#">Voting Day</a></h3>
-                    </header>
-                    <p>
-                      Lorem ipsum dolor odio facilisis convallis. Etiam non nunc
-                      vel est suscipit convallis non id orci lorem ipsum sed magna
-                      consequat feugiat lorem dolore.
-                    </p>
-                  </article>
-                </li>
-                <li>
-                  <!-- Excerpt -->
-                  <article class="box excerpt">
-                    <header>
-                      <span class="date">July 24</span>
-                      <h3><a href="#">Result</a></h3>
-                    </header>
-                    <p>
-                      Lorem ipsum dolor odio facilisis convallis. Etiam non nunc
-                      vel est suscipit convallis non id orci lorem ipsum sed magna
-                      consequat feugiat lorem dolore.
-                    </p>
-                  </article>
-                </li>
-              </ul>
-            </section>
-  
-            <!-- Highlights -->
-            <section>
-              <ul class="divided">
-                <li>
-                  <!-- Highlight -->
-                  <article class="box highlight">
-                    <header>
-                      <h3><a href="#">Something of note</a></h3>
-                    </header>
-                    <a href="#" class="image left"
-                      ><img src="../assets/images/pic06.jpg" alt=""
-                    /></a>
-                    <p>
-                      Phasellus sed laoreet massa id justo mattis pharetra. Fusce
-                      suscipit ligula vel quam viverra sit amet mollis tortor
-                      congue magna lorem ipsum dolor et quisque ut odio facilisis
-                      convallis. Etiam non nunc vel est suscipit convallis non id
-                      orci. Ut interdum tempus facilisis convallis. Etiam non nunc
-                      vel est suscipit convallis non id orci.
-                    </p>
-                    <ul class="actions">
-                      <li>
-                        <a href="#" class="button icon solid fa-file"
-                          >Learn More</a
-                        >
-                      </li>
-                    </ul>
-                  </article>
-                </li>
-                <li>
-                  <!-- Highlight -->
-                  <article class="box highlight">
-                    <header>
-                      <h3><a href="#">Something of less note</a></h3>
-                    </header>
-                    <a href="#" class="image left"
-                      ><img src="../assets/images/pic07.jpg" alt=""
-                    /></a>
-                    <p>
-                      Phasellus sed laoreet massa id justo mattis pharetra. Fusce
-                      suscipit ligula vel quam viverra sit amet mollis tortor
-                      congue magna lorem ipsum dolor et quisque ut odio facilisis
-                      convallis. Etiam non nunc vel est suscipit convallis non id
-                      orci. Ut interdum tempus facilisis convallis. Etiam non nunc
-                      vel est suscipit convallis non id orci.
-                    </p>
-                    <ul class="actions">
-                      <li>
-                        <a href="#" class="button icon solid fa-file"
-                          >Learn More</a
-                        >
-                      </li>
-                    </ul>
-                  </article>
-                </li>
-              </ul>
-            </section>
-          </div>
+  <!-- Header -->
+  <section id="header">
+    <div class="container">
+      <!-- Banner -->
+      <section id="banner">
+        <div class="container">
+          <p>
+            Use this space for <strong>profound thoughts</strong>.<br />
+            Or an enormous ad. Whatever.
+          </p>
         </div>
-      </div>
-    </section>
-  
-    <!-- Footer -->
-    <section id="footer">
-      <div class="container">
-        <header>
-          <h2>Questions or comments? <strong>Get in touch:</strong></h2>
-        </header>
-        <div class="row">
-          <div class="col-6 col-12-medium">
-            <section>
-              <form method="post" action="#">
-                <div class="row gtr-50">
-                  <div class="col-6 col-12-small">
-                    <input name="name" placeholder="Name" type="text" />
-                  </div>
-                  <div class="col-6 col-12-small">
-                    <input name="email" placeholder="Email" type="text" />
-                  </div>
-                  <div class="col-12">
-                    <textarea name="message" placeholder="Message"></textarea>
-                  </div>
-                  <div class="col-12">
-                    <a
-                      href="#"
-                      class="form-button-submit button icon solid fa-envelope"
-                      >Send Message</a
-                    >
-                  </div>
-                </div>
-              </form>
-            </section>
-          </div>
-          <div class="col-6 col-12-medium">
-            <section>
-              <p>
-                Erat lorem ipsum veroeros consequat magna tempus lorem ipsum
-                consequat Phaselamet mollis tortor congue. Sed quis mauris sit
-                amet magna accumsan tristique. Curabitur leo nibh, rutrum eu
-                malesuada.
-              </p>
-              <div class="row">
-                <div class="col-6 col-12-small">
-                  <ul class="icons">
-                    <li class="icon solid fa-home">
-                      1234 Somewhere Road<br />
-                      Nashville, TN 00000<br />
-                      USA
-                    </li>
-                    <li class="icon solid fa-phone">(000) 000-0000</li>
-                    <li class="icon solid fa-envelope">
-                      <a href="#">info@untitled.tld</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-6 col-12-small">
-                  <ul class="icons">
-                    <li class="icon brands fa-twitter">
-                      <a href="#">@untitled</a>
-                    </li>
-                    <li class="icon brands fa-instagram">
-                      <a href="#">instagram.com/untitled</a>
-                    </li>
-                    <li class="icon brands fa-dribbble">
-                      <a href="#">dribbble.com/untitled</a>
-                    </li>
-                    <li class="icon brands fa-facebook-f">
-                      <a href="#">facebook.com/untitled</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      <div id="copyright" class="container">
-        <ul class="links">
-          <li>&copy; Untitled. All rights reserved.</li>
-          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      </section>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul>
+          <li>
+            <a class="icon solid fa-home" routerLink="/user"
+              ><span>Home</span></a
+            >
+          </li>
+
+          <li>
+            <a class="icon solid fa-volume-high"
+              ><span>Voting explained</span></a
+            >
+          </li>
+          <!-- <li><a class="icon solid fa-retweet" href="right-sidebar.html"><span>Nomintation</span></a></li> -->
+          <li>
+            <a class="icon solid fa-right-to-bracket" (click)="logout()"
+              ><span>Logout</span></a
+            >
+          </li>
         </ul>
-      </div>
-    </section>
-  </div>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="container">
+      <header>
+        <h2><strong>Leadership Roles</strong> in Elections</h2>
+      </header>
+      <app-card></app-card>
+    </div>
+  </section>
+
+    <!-- Main -->
+    <ng-container #voting>
+      <app-voting-explained></app-voting-explained>
   
+    </ng-container>
+  
+
+<app-footer> </app-footer>
+</div>
