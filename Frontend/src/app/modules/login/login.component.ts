@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -28,9 +28,9 @@ export class LoginComponent {
 
   getOtp() {
     let value = this.emailLogin.value;
-    this.auth.beforeOTP(value).subscribe(data=>{
+    this.auth.beforeOTP(value).subscribe(data => {
       console.log(data);
-      localStorage.setItem('email',value.email)
+      localStorage.setItem('email', value.email)
       this.showDiv = !this.showDiv;
 
     })
@@ -39,11 +39,11 @@ export class LoginComponent {
   login() {
     let otp = this.otpLogin.value.otp;
     let email = localStorage.getItem('email');
-    let value = {email,otp}
-   this.auth.afterOTP(value).subscribe(data=>{
-    console.log(data)
-    this.router.navigate(['/user']);
-   })
+    let value = { email, otp }
+    this.auth.afterOTP(value).subscribe(data => {
+      console.log(data)
+      this.router.navigate(['/user']);
+    })
 
   }
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgSelectConfig } from '@ng-select/ng-select';
+import { AdminService } from 'src/app/services/admin.service';
 
 
 @Component({
@@ -10,19 +11,20 @@ import { NgSelectConfig } from '@ng-select/ng-select';
   styleUrls: ['./declare-election.component.scss']
 })
 export class DeclareElectionComponent {
-  
 
- 
+positions:any
+
 
   electionForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private config: NgSelectConfig) {
+  constructor(private fb: FormBuilder, private router: Router, private config: NgSelectConfig, private api: AdminService) {
     this.electionForm = this.fb.group({
       nomination_start: ['', Validators.required],
       nomination_end: ['', Validators.required],
       voting_start: ['', Validators.required],
       voting_end: ['', Validators.required],
-      result_day:['', Validators.required],
+      result_day: ['', Validators.required],
+      positions: ['', Validators.required]
     })
 
     this.config.notFoundText = 'Custom not found';
@@ -40,16 +42,27 @@ export class DeclareElectionComponent {
 
 
   onSubmit(): void {
+    this.electionForm.value.positions = this.selectedOptions;
     let value = this.electionForm.value;
-    console.log(value)
+
+    this.api.declareElection(value).subscribe(res => {
+      console.log(res)
+    })
   }
 
   options = ['Option 1', 'Option 2', 'Option 3'];
-  selectedOptions:any;
+  selectedOptions: any;
   selectAll = false;
 
-  selectAllOptions(event:any) {
+  selectAllOptions(event: any) {
     this.selectedOptions = event.target.checked ? this.options : [];
+    console.log(this.selectedOptions)
   }
-  
+
+  ngOnInit(){
+    this.api.getPosition().subscribe((res: any) => {
+      console.log(res);
+      this.positions = res.data
+    })  }
+
 }

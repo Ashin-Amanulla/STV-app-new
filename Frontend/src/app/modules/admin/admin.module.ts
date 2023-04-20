@@ -6,12 +6,14 @@ import { AdminComponent } from './admin.component';
 import { SideNavbarComponent } from './units/side-navbar/side-navbar.component';
 import { DeclareElectionComponent } from './election/declare-election/declare-election.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ListPositionsComponent } from './positions/list-positions/list-positions.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
     SideNavbarComponent,
     DeclareElectionComponent,
+    ListPositionsComponent,
   ],
   imports: [
     CommonModule,

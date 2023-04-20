@@ -7,8 +7,9 @@ import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { SharedModule } from './shared/shared.module';
-import { AuthService } from './auth/auth.service';
+import { AuthService } from './services/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AdminService } from './services/admin.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     SharedModule,
     HttpClientModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
