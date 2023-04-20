@@ -14,7 +14,6 @@ export class HomeComponent {
   }
   
   scroll(el: HTMLElement) {
-  
     if(this.navClick){
       this.navClick = false;
     }

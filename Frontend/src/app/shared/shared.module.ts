@@ -5,7 +5,6 @@ import { VotingExplainedComponent } from './voting-explained/voting-explained.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [
     FooterComponent,
@@ -14,13 +13,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   exports:[
     FooterComponent,
     VotingExplainedComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ]
 })
 export class SharedModule { }

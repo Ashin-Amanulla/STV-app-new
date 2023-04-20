@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-navbar.component.scss']
 })
 export class SideNavbarComponent {
+  loginUser: any;
+  isAuthorized(): boolean {
+    return true;
+  }
 
+  logout(){}
+
+  toView(){}
 }

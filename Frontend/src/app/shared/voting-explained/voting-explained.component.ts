@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-voting-explained',
   templateUrl: './voting-explained.component.html',
-  styleUrls: ['./voting-explained.component.scss']
+  styleUrls: ['./voting-explained.component.scss','../../../assets/styles/global_style.scss']
 })
 export class VotingExplainedComponent {
 

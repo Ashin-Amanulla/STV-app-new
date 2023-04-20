@@ -1,194 +1,310 @@
-<nav class="mnb navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <i class="ic fa fa-bars"></i>
+<nav
+  class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+>
+  <div class="px-3 py-3 lg:px-5 lg:pl-3">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center justify-start">
+        <button
+          data-drawer-target="sidebar-multi-level-sidebar"
+          data-drawer-toggle="sidebar-multi-level-sidebar"
+          aria-controls="sidebar-multi-level-sidebar"
+          type="button"
+          class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        >
+          <span class="sr-only">Open sidebar</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              fill-rule="evenodd"
+              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+            ></path>
+          </svg>
         </button>
-        <div style="padding: 15px 0;">
-           <a href="#" id="msbo"><i class="ic fa fa-bars"></i></a>
+        <a class="flex ml-2 md:mr-24">
+          <img
+            src="https://flowbite.com/docs/images/logo.svg"
+            class="h-8 mr-3"
+            alt="FlowBite Logo"
+          />
+          <span
+            class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"
+            >Election App</span
+          >
+        </a>
+      </div>
+      <div class="flex items-center">
+        <div class="flex items-center ml-3">
+          <div>
+            <button
+              type="button"
+              class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              aria-expanded="false"
+              data-dropdown-toggle="dropdown-user"
+            >
+              <span class="sr-only">Open user menu</span>
+              <img
+                class="w-8 h-8 rounded-full"
+                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                alt="user photo"
+              />
+            </button>
+          </div>
+          <div
+            class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+            id="dropdown-user"
+          >
+            <div class="px-4 py-3" role="none">
+              <p class="text-sm text-gray-900 dark:text-white" role="none">
+                Neil Sims
+              </p>
+              <p
+                class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
+                role="none"
+              >
+                neil.sims@flowbite.com
+              </p>
+            </div>
+            <ul class="py-1" role="none">
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                  >Settings</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                  >Earnings</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                  >Sign out</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">En</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Draude Oba <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Settings</a></li>
-              <li><a href="#">Upgrade</a></li>
-              <li><a href="#">Help</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Logout</a></li>
-            </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+  <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+    <ul class="space-y-2 font-medium">
+      <!-- dashboard  -->
+      <li>
+        <a
+          class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
+          <span class="ml-3">Dashboard</span>
+        </a>
+      </li>
+      <!-- Election  -->
+      <li>
+        <button
+          type="button"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+          aria-controls="dropdown-example"
+          data-collapse-toggle="dropdown-example"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+            />
+          </svg>
+
+          <span
+            class="flex-1 ml-3 text-left whitespace-nowrap"
+            sidebar-toggle-item
+            >Election</span
+          >
+          <svg
+            sidebar-toggle-item
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <ul id="dropdown-example" class="hidden py-2 space-y-2">
+          <li>
+            <a routerLink="declare-election"
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              ><i class="bi bi-megaphone"></i>Declare elections</a
+            >
           </li>
-          <li><a href="#"><i class="fa fa-bell-o"></i></a></li>
-          <li><a href="#"><i class="fa fa-comment-o"></i></a></li>
+          <li>
+            <a
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              ><i class="bi bi-envelope-paper"></i>Upcoming elections</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              ><i class="bi bi-envelope-slash"></i>Past Elections</a
+            >
+          </li>
         </ul>
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
-      </div>
-    </div>
-  </nav>
-  <!--msb: main sidebar-->
-  <div class="msb" id="msb">
-          <nav class="navbar navbar-default" role="navigation">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                  <div class="brand-wrapper">
-                      <!-- Brand -->
-                      <div class="brand-name-wrapper">
-                          <a class="navbar-brand" href="#">
-                              SAITAMA
-                          </a>
-                      </div>
-  
-                  </div>
-  
-              </div>
-  
-              <!-- Main Menu -->
-              <div class="side-menu-container">
-                  <ul class="nav navbar-nav">
-  
-                      <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                      <li class="active"><a href="#"><i class="fa fa-puzzle-piece"></i> Components</a></li>
-                      <li><a href="#"><i class="fa fa-heart"></i> Extras</a></li>
-  
-                      <!-- Dropdown-->
-                      <li class="panel panel-default" id="dropdown">
-                          <a data-toggle="collapse" href="#dropdown-lvl1">
-                              <i class="fa fa-diamond"></i> Apps
-                            <span class="caret"></span>
-              </a>
-                          <!-- Dropdown level 1 -->
-                          <div id="dropdown-lvl1" class="panel-collapse collapse">
-                              <div class="panel-body">
-                                  <ul class="nav navbar-nav">
-                                      <li><a href="#">Mail</a></li>
-                                      <li><a href="#">Calendar</a></li>
-                                      <li><a href="#">Ecommerce</a></li>
-                                      <li><a href="#">User</a></li>
-                                      <li><a href="#">Social</a></li>
-  
-                                      <!-- Dropdown level 2 -->
-                                      <li class="panel panel-default" id="dropdown">
-                                          <a data-toggle="collapse" href="#dropdown-lvl2">
-                                              <i class="glyphicon glyphicon-off"></i> Sub Level <span class="caret"></span>
-                                          </a>
-                                          <div id="dropdown-lvl2" class="panel-collapse collapse">
-                                              <div class="panel-body">
-                                                  <ul class="nav navbar-nav">
-                                                      <li><a href="#">Link</a></li>
-                                                      <li><a href="#">Link</a></li>
-                                                      <li><a href="#">Link</a></li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </li>
-                      <li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
-                  </ul>
-              </div><!-- /.navbar-collapse -->
-          </nav>  
+      </li>
+
+      <!-- Candidates  -->
+      <li>
+        <button
+          type="button"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+          aria-controls="candidates-list"
+          data-collapse-toggle="candidates-list"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
+            />
+          </svg>
+          <span
+            class="flex-1 ml-3 text-left whitespace-nowrap"
+            sidebar-toggle-item
+            >Candidates</span
+          >
+          <svg
+            sidebar-toggle-item
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <ul id="candidates-list" class="hidden py-2 space-y-2">
+          <li>
+            <a
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              ><i class="bi bi-person-check"></i> Candidates List</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              ><i class="bi bi-person-exclamation"></i>New Requests</a
+            >
+          </li>
+        </ul>
+      </li>
+<!-- Positions  -->
+
+
+<li>
+  <a
+    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+      />
+    </svg>
+    <span class="ml-3">Settings</span>
+  </a>
+</li>
+
+      <li>
+        <a
+          class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+            />
+          </svg>
+          <span class="ml-3">Logout</span>
+        </a>
+      </li>
+    </ul>
   </div>
-  <!--main content wrapper-->
-  <div class="mcw">
-    <!--navigation here-->
-    <!--main content view-->
-    <div class="cv">
-      <div>
-       <div class="inbox">
-         <div class="inbox-sb">
-           
-         </div>
-         <div class="inbox-bx container-fluid">
-           <div class="row">
-             <div class="col-md-2">
-               <ul>
-                 <li><a href="#">Inbox</a></li>
-                 <li><a href="#">Sent</a></li>
-                 <li><a href="#">Trash</a></li>
-               </ul>
-             </div>
-             <div class="col-md-10">
-               <table class="table table-stripped">
-                 <tbody>
-                   <tr>
-                     <td><input type="checkbox"/></td>
-                     <td><i class="fa fa-star"></i></td>
-                     <td><b>Mozilla</b></td>
-                     <td><b>In celebration of women and girls everywhere</b></td>
-                     <td></td>
-                     <td>Mar 10</td>
-                   </tr>
-                   <tr>
-                     <td><input type="checkbox"/></td>
-                     <td><i class="fa fa-star-o"></i></td>
-                     <td>Dan Glenn</td>
-                     <td>[ptcuser-announcements] - PTC/USER Expert Speaker Series Webinar March 9, 2017 11AM (EST)</td>
-                     <td><i class="fa fa-paperclip"></i></td>
-                     <td>Mar 10</td>
-                   </tr>
-                   <tr>
-                     <td><input type="checkbox"/></td>
-                     <td><i class="fa fa-star-o"></i></td>
-                     <td>Jetpack</td>
-                     <td>Announcing some highly requested improvements and our new affiliate program</td>
-                     <td></td>
-                     <td>Mar 08</td>
-                   </tr>
-                   <tr>
-                     <td><input type="checkbox"/></td>
-                     <td><i class="fa fa-star-o"></i></td>
-                     <td>Jetpack</td>
-                     <td>Announcing some highly requested improvements and our new affiliate program</td>
-                     <td></td>
-                     <td>Mar 08</td>
-                   </tr>
-                   <tr>
-                     <td><input type="checkbox"/></td>
-                     <td><i class="fa fa-star-o"></i></td>
-                     <td>Jetpack</td>
-                     <td>Announcing some highly requested improvements and our new affiliate program</td>
-                     <td></td>
-                     <td>Mar 08</td>
-                   </tr>
-                   <tr>
-                     <td><input type="checkbox"/></td>
-                     <td><i class="fa fa-star-o"></i></td>
-                     <td>Jetpack</td>
-                     <td>Announcing some highly requested improvements and our new affiliate program</td>
-                     <td></td>
-                     <td>Mar 08</td>
-                   </tr>
-                   <tr>
-                     <td><input type="checkbox"/></td>
-                     <td><i class="fa fa-star-o"></i></td>
-                     <td>Jetpack</td>
-                     <td>Announcing some highly requested improvements and our new affiliate program</td>
-                     <td></td>
-                     <td>Mar 08</td>
-                   </tr>
-                   <tr>
-                     <td><input type="checkbox"/></td>
-                     <td><i class="fa fa-star-o"></i></td>
-                     <td>Jetpack</td>
-                     <td>Announcing some highly requested improvements and our new affiliate program</td>
-                     <td></td>
-                     <td>Mar 08</td>
-                   </tr>
-  
-                 </tbody>
-               </table>
-             </div>
-           </div>
-         </div>
-       </div>
-      </div>
-    </div>
-  </div>
+</aside>
+
