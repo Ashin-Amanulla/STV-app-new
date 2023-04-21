@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { DeclareElectionComponent } from './election/declare-election/declare-election.component';
 import { ListPositionsComponent } from './positions/list-positions/list-positions.component';
+import { UpcomingElectionComponent } from './election/upcoming-election/upcoming-election.component';
+import { ElecPositionListComponent } from './positions/elec-position-list/elec-position-list.component';
+import { ListComponent } from './candidates/list/list.component';
 
 const routes: Routes = [
   {
@@ -12,6 +15,15 @@ const routes: Routes = [
       },
       {
         path: 'positions', component: ListPositionsComponent
+      },
+      {
+        path: 'upcoming', component: UpcomingElectionComponent
+      },
+      {
+        path: 'upcoming/:id', component: ElecPositionListComponent
+      },
+      {
+        path: 'upcoming/:id/candidates', component: ListComponent
       },
     ]
   },

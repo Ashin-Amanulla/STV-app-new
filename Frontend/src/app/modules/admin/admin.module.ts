@@ -7,6 +7,9 @@ import { SideNavbarComponent } from './units/side-navbar/side-navbar.component';
 import { DeclareElectionComponent } from './election/declare-election/declare-election.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ListPositionsComponent } from './positions/list-positions/list-positions.component';
+import { UpcomingElectionComponent } from './election/upcoming-election/upcoming-election.component';
+import { ElecPositionListComponent } from './positions/elec-position-list/elec-position-list.component';
+import { ListComponent } from './candidates/list/list.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +17,9 @@ import { ListPositionsComponent } from './positions/list-positions/list-position
     SideNavbarComponent,
     DeclareElectionComponent,
     ListPositionsComponent,
+    UpcomingElectionComponent,
+    ElecPositionListComponent,
+    ListComponent,
   ],
   imports: [
     CommonModule,

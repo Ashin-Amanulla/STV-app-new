@@ -30,4 +30,34 @@ export class AdminService {
   editPosition(id:any){
     return this.http.get(`${this.api}/position/${id}`)
   }
+
+
+  //election
+  getElectionList(){
+    return this.http.get(`${this.api}/election`)
+  }
+
+  editElection(id:any,value:any):Observable<any>{
+    return this.http.put<any>(`${this.api}/election/${id}`,value)
+  }
+
+  getActivePositions(id:any){
+    return this.http.get(`${this.api}/election/${id}/pos`)
+  }
+
+
+  addElecPosition(item:any,id:any):Observable<any[]>{
+    return this.http.post<any[]>(`${this.api}/election/${id}/pos`, item)
+  }
+
+  deleteElecPosition(item:any,id:any){
+    let pos_id = item._id
+    return this.http.delete(`${this.api}/election/${id}/pos/${pos_id}`)
+  }
+
+  // candidates 
+getCandidates(id:any,pos_id:any){
+  return this.http.get(`${this.api}/election/${id}/pos/${pos_id}`)
+
+}
 }
