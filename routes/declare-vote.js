@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const ElectionModel = require('../models/declare-vote')
+const {ElectionModel} = require('../models/declare-vote')
 
 
 router.post('/', async (req, res) => {

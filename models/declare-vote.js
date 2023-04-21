@@ -1,17 +1,19 @@
 const mongoose = require('mongoose');
 
-const PostSchema = new mongoose.Schema({
+const CandidateSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    department: { type: String, required: true },
+    image: { type: String, required: true },
+    ads: [{ type: String, required: true }]
+}, { timestamps: true })
 
+
+const PostSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
     },
-    candidates: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'candidates'
-        },
-    ],
+    candidates: [CandidateSchema],
     winner: {
 
         type: mongoose.Schema.Types.ObjectId,
@@ -20,7 +22,6 @@ const PostSchema = new mongoose.Schema({
     }
 })
 
-const newPostModel = mongoose.model('newpost', PostSchema)
 
 const ElectionSchema = new mongoose.Schema({
     title: {
@@ -52,7 +53,9 @@ const ElectionSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-const ElectionModel = mongoose.model('election', ElectionSchema);
+
+
+
 
 
 
@@ -71,7 +74,9 @@ ElectionSchema.pre('save', async function () {
 
 
 
+const ElectionModel = mongoose.model('election', ElectionSchema);
+const newPostModel = mongoose.model('newpost', PostSchema)
+const CandidateModel = mongoose.model('candidate', CandidateSchema);
 
 
-
-module.exports = ElectionModel;
+module.exports = {ElectionModel,newPostModel,CandidateModel};

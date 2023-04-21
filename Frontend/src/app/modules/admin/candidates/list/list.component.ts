@@ -22,9 +22,12 @@ export class ListComponent {
   getCandidates() {
     this.id = this.route.snapshot.paramMap.get('id');
     let pos_id = localStorage.getItem('pos_id');
-    let position = localStorage.getItem('position')
-    this.api.getCandidates(this.id, pos_id).subscribe((res: any) => {
-      console.log(res.data[0].positions);
+    let pos = localStorage.getItem('position')
+    this.api.getActivePositions(this.id).subscribe((res: any) => {
+      let incomingData= res.data[0].positions;
+      let candidates = incomingData.filter((e: any) => e.title === pos);
+      this.lists = candidates[0].candidates
+      console.log(this.lists)
     })
   }
 
