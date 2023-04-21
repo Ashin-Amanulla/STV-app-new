@@ -5,7 +5,7 @@ const moment = require('moment');
 const CandidateSchema = new mongoose.Schema({
     name: { type: String, required: true },
     desc: { type: String, required: true },
-    email: { type: String, required: true , unique: true },
+    email: { type: String, required: true, unique: true },
     year: { type: String, required: true },
     img: { type: String, required: true },
     ads: [{ type: String, required: true }],
@@ -23,6 +23,11 @@ const PostSchema = new mongoose.Schema({
         required: true
     },
     candidates: [CandidateSchema],
+    votes: [{
+        email: { type: String, required: true },
+        rankings: []
+    }],
+    voters: [],
     winner: {
 
         type: mongoose.Schema.Types.ObjectId,
@@ -79,7 +84,7 @@ const ElectionSchema = new mongoose.Schema({
 ElectionSchema.pre('save', async function () {
     // Loop through each child and save it to the child collection
     for (let i = 0; i < this.positions.length; i++) {
-        let data = {title:this.positions[i].title}
+        let data = { title: this.positions[i].title }
         console.log(data);
         const child = new newPostModel(data);
         await child.save();

@@ -25,9 +25,9 @@ app.use('/api',require('./routes'))
 // const borda = new Borda({
 //     candidates: ['Lion', 'Bear', 'Sheep'],
 //     ballots: [
-//       { ranking: [['Lion'], ['Sheep'], ['Bear']], weight: 1 },
-//       { ranking: [['Sheep'], ['Lion'], ['Bear']], weight: 1 },
-//       { ranking: [['Bear'], ['Sheep'], ['Bear']], weight: 1},
+//       { ranking: [['Lion'], ['Sheep'], ['Bear']], weight: 3 },
+//       { ranking: [['Sheep'], ['Lion'], ['Bear']], weight: 3 },
+//       { ranking: [['Bear'], ['Sheep'], ['Bear']], weight: 3},
 //     ],
 //   })
   
