@@ -15,6 +15,11 @@ export class AdminService {
     return this.http.post(`${this.api}/election`, item)
   }  
 
+  deleteElection(id:any){
+    return this.http.delete(`${this.api}/election/${id}`)
+
+  }
+
   addPosition(item:any):Observable<any[]>{
     return this.http.post<any[]>(`${this.api}/position`, item)
   }
@@ -58,6 +63,13 @@ export class AdminService {
   // candidates 
 getCandidates(id:any,pos_id:any){
   return this.http.get(`${this.api}/election/${id}/pos/${pos_id}`)
+}
 
+applyCandidate(item:any,id:any,pos_id:any){
+  return this.http.post<any[]>(`${this.api}/election/${id}/pos/${pos_id}`, item)
+}
+
+deleteCandidate(cand_id:any,id:any,pos_id:any){
+  return this.http.delete(`${this.api}/election/${id}/pos/${pos_id}/candidate/${cand_id}`)
 }
 }

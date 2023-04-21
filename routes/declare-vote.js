@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {ElectionModel} = require('../models/declare-vote')
+const { ElectionModel } = require('../models/declare-vote')
 
 
 router.post('/', async (req, res) => {
@@ -39,6 +39,21 @@ router.put('/:_id', async (req, res) => {
         res.json({ message: error }).status(400)
     }
 })
+
+
+router.delete('/:_id', async (req, res) => {
+    try {
+        let _id = req.params._id
+
+        await ElectionModel.findByIdAndDelete(_id)
+        res.json({ message: 'deleted successfully!!', status: true }).status(200)
+    }
+    catch (error) {
+        console.log(error)
+        res.json({ message: error }).status(400)
+    }
+})
+
 
 router.get('/:id/pos', async (req, res) => {
     try {
@@ -90,17 +105,17 @@ router.delete('/:id/pos/:pos_id', async (req, res) => {
 })
 
 
-router.get('/:id/pos/:pos_id', async (req, res) => {
+//* to add candidate 
+router.post('/:id/pos/:pos_id', async (req, res) => {
     try {
-        let election_id = req.params.id;
-        let position_id = req.params.pos_id
-        let data = await ElectionModel.find({ _id: election_id }, {
-
-            "positions": {
-                "_id": position_id
-            }
-
-        },
+        let id = req.params.id
+        let pos_id=req.params.pos_id
+        let data = await ElectionModel.updateOne(
+            {
+                _id: id,
+                "positions.title": pos_id
+            },
+            {$push:{'positions.$.candidates':req.body}}
 
         )
         console.log(data)
@@ -111,5 +126,50 @@ router.get('/:id/pos/:pos_id', async (req, res) => {
         res.status(400).send(error)
     }
 })
+
+
+router.delete('/:id/pos/:pos_id/candidate/:cand_id', async (req, res) => {
+    try {
+        let id = req.params.id
+        let pos_id=req.params.pos_id
+        let cand_id = req.params.cand_id
+        let data = await ElectionModel.updateOne(
+            {
+                _id: id,
+                "positions._id": pos_id
+            },
+            {$pull:{'positions.$.candidates':{_id: cand_id}}}
+
+        )
+        console.log(data)
+        res.status(200).json({ data: data })
+
+    } catch (error) {
+        console.log(error)
+        res.status(400).send(error)
+    }
+})
+
+// router.get('/:id/pos/:pos_id', async (req, res) => {
+//     try {
+//         let election_id = req.params.id;
+//         let position_id = req.params.pos_id
+//         let data = await ElectionModel.find({ _id: election_id }, {
+
+//             "positions": {
+//                 "_id": position_id
+//             }
+
+//         },
+
+//         )
+//         console.log(data)
+//         res.status(200).json({ data: data })
+
+//     } catch (error) {
+//         console.log(error)
+//         res.status(400).send(error)
+//     }
+// })
 
 module.exports = router

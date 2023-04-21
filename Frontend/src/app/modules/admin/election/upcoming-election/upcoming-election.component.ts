@@ -53,7 +53,7 @@ export class UpcomingElectionComponent {
   deleteItem(item: any) {
     let id = item._id;
     this.deletingItem = item;
-    this.api.deletePosition(id).subscribe((res: any) => {
+    this.api.deleteElection(id).subscribe((res: any) => {
       setTimeout(() => {
         this.lists = this.lists.filter((e: any) => e._id !== id)
         this.deletingItem = null;

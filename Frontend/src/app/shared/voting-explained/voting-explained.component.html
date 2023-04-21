@@ -10,7 +10,7 @@
               <a>Voting <strong>Explained</strong> </a>
             </h2>
           </header>
-          <a href="#" class="image featured"
+          <a  class="image featured"
             ><iframe
               class="youtube-video"
               src="https://www.youtube.com/embed/_QstnZjkFEM"
@@ -36,7 +36,7 @@
           </p>
           <ul class="actions">
             <li>
-              <a href="#" class="button icon solid fa-square-poll-vertical"
+              <a  class="button icon solid fa-square-poll-vertical"
                 >Vote Now</a
               >
             </li>
@@ -53,13 +53,19 @@
               <!-- Excerpt -->
               <article class="box excerpt">
                 <header>
-                  <span class="date">July 30</span>
+                  <span class="date">{{
+                    election.nomination_start | dateFormatter : "MMMM DD"
+                  }}</span>
                   <h3><a>Nomination</a></h3>
                 </header>
                 <p>
-                  Nomination begins on <strong> July 30 , 10:00 . </strong>
+                  Nomination begins on <strong> {{
+                    election.nomination_start | dateFormatter : "MMMM DD , HH:mm"
+                  }}  </strong>
                   <br />
-                  Nomination ends on <strong>August 30 , 17:00</strong> <br />
+                  Nomination ends on <strong>{{
+                    election.nomination_end | dateFormatter : "MMMM DD , HH:mm"
+                  }}</strong> <br />
                   <br /><br />
                   <a style="cursor: pointer"
                     ><span class="p-2 badge text-bg-dark"
@@ -83,18 +89,24 @@
               <!-- Excerpt -->
               <article class="box excerpt">
                 <header>
-                  <span class="date">September 1</span>
-                  <h3><a href="#">Voting Days</a></h3>
+                  <span class="date">{{
+                    election.voting_start | dateFormatter : "MMMM DD"
+                  }}</span>
+                  <h3><a >Voting Days</a></h3>
                 </header>
                 <p>
                   The voting will start on
-                  <strong>September 1 , 10:00.</strong> <br />
-                  The voting will end on <strong>September 5 ,17:00</strong>
+                  <strong>{{
+                    election.voting_start | dateFormatter : "MMMM DD , HH:mm"
+                  }}</strong> <br />
+                  The voting will end on <strong>{{
+                    election.voting_end | dateFormatter : "MMMM DD , HH:mm"
+                  }}</strong>
                 </p>
                 <ul class="actions">
                   <li>
                     <a
-                      href="#"
+                      
                       class="button icon solid fa-square-poll-vertical"
                       >Vote Now
                     </a>
@@ -106,16 +118,20 @@
               <!-- Excerpt -->
               <article class="box excerpt">
                 <header>
-                  <span class="date">September 6</span>
-                  <h3><a href="#">Result</a></h3>
+                  <span class="date">{{
+                    election.result_day | dateFormatter : "MMMM DD"
+                  }}</span>
+                  <h3><a >Result</a></h3>
                 </header>
                 <p>
                   Results will be published on
-                  <strong>September 6, 10:00.</strong>
+                   <strong>{{
+                    election.result_day  | dateFormatter : "MMMM DD , HH:mm"
+                  }}</strong>
                 </p>
                 <ul class="actions">
                   <li>
-                    <a href="#" class="button icon solid fa-eye"
+                    <a  class="button icon solid fa-eye"
                       >View Results
                     </a>
                   </li>

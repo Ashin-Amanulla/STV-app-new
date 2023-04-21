@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { VotingExplainedComponent } from './voting-explained/voting-explained.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DateFormatterPipe } from '../pipes/date-formatter.pipe';
 
 
 @NgModule({
   declarations: [
     FooterComponent,
-    VotingExplainedComponent
+    VotingExplainedComponent,
+    DateFormatterPipe
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VotingExplainedComponent,
     FormsModule,
     ReactiveFormsModule,
+    DateFormatterPipe
     
   ]
 })

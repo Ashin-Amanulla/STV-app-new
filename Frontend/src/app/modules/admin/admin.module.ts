@@ -10,23 +10,27 @@ import { ListPositionsComponent } from './positions/list-positions/list-position
 import { UpcomingElectionComponent } from './election/upcoming-election/upcoming-election.component';
 import { ElecPositionListComponent } from './positions/elec-position-list/elec-position-list.component';
 import { ListComponent } from './candidates/list/list.component';
+import { SharedModule } from "../../shared/shared.module";
+import { PendingCandidatesComponent } from './candidates/pending-candidates/pending-candidates.component';
 
 @NgModule({
-  declarations: [
-    AdminComponent,
-    SideNavbarComponent,
-    DeclareElectionComponent,
-    ListPositionsComponent,
-    UpcomingElectionComponent,
-    ElecPositionListComponent,
-    ListComponent,
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgSelectModule
-  ]
+    declarations: [
+        AdminComponent,
+        SideNavbarComponent,
+        DeclareElectionComponent,
+        ListPositionsComponent,
+        UpcomingElectionComponent,
+        ElecPositionListComponent,
+        ListComponent,
+        PendingCandidatesComponent,
+    ],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgSelectModule,
+        SharedModule
+    ]
 })
 export class AdminModule { }

@@ -31,6 +31,7 @@ export class ElecPositionListComponent {
     this.id = this.route.snapshot.paramMap.get('id');
     this.api.getActivePositions(this.id).subscribe((res: any) => {
       this.lists = res.data[0].positions;
+      console.log(this.lists)
       setTimeout(() => this.getExistingPositions()), 500
 
     })
