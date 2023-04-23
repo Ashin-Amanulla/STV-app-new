@@ -35,10 +35,9 @@ electionForm!: FormGroup;
 
     this.electionForm.value.positions = this.selectedPositions
     let value = this.electionForm.value;
-    console.log(value)
-
     this.api.declareElection(value).subscribe(res => {
       console.log(res)
+      this.router.navigate(['/admin'])
     })
   }
 

@@ -6,6 +6,7 @@ import { ListPositionsComponent } from './positions/list-positions/list-position
 import { UpcomingElectionComponent } from './election/upcoming-election/upcoming-election.component';
 import { ElecPositionListComponent } from './positions/elec-position-list/elec-position-list.component';
 import { ListComponent } from './candidates/list/list.component';
+import { PendingCandidatesComponent } from './candidates/pending-candidates/pending-candidates.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'upcoming/:id/candidates', component: ListComponent
       },
+      {
+        path: 'pending-candidates', component: PendingCandidatesComponent
+      },
+      
     ]
   },
 

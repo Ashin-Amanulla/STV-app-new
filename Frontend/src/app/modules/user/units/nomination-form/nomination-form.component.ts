@@ -14,7 +14,6 @@ export class NominationFormComponent {
   myFormGroup: FormGroup;
   selectedItem: any
   selectedId: any
-  user_election_id:any
 
   constructor(private router: Router, private api: AdminService, private fb: FormBuilder) {
     this.myFormGroup = this.fb.group({
@@ -24,13 +23,13 @@ export class NominationFormComponent {
       desc: ['', Validators.required],
       img: ['', Validators.required],
       position: ['', Validators.required],
-      declaration: ['', Validators.required]
+      declaration: ['', Validators.required],
+      posRef:['']
     });
   }
 
   ngOnInit() {
     this.api.getElectionList().subscribe((res: any) => {
-      this.user_election_id = res.data[0]._id
       this.position = res.data[0].positions
       console.log(this.position)
     })
@@ -41,14 +40,16 @@ export class NominationFormComponent {
   }
 
   submit() {
-    let value = this.myFormGroup.value
-    console.log(this.user_election_id,this.selectedId)
-    this.api.applyCandidate(value, this.user_election_id,this.selectedId).subscribe((res: any) => { console.log(res) });
+    let value = this.myFormGroup.value;
+    this.myFormGroup.value.position = this.selectedItem.title;
+    this.myFormGroup.value.posRef = this.selectedId;
+
+    this.api.applyCandidate(value,this.selectedId).subscribe((res: any) => { console.log(res) });
   }
 
   onSelectionChange() {
     // Extract the Mongo ID from the selected object and store it in local storage
-    this.selectedId = this.selectedItem;
+    this.selectedId = this.selectedItem._id;
     console.log(this.selectedId)
   }
 

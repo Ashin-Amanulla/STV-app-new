@@ -20,30 +20,11 @@ app.use(compression())
 // routeHandler 
 app.use('/api',require('./routes'))
 
-//testing
-// const {Borda} = require('votes')
-// const borda = new Borda({
-//     candidates: ['Lion', 'Bear', 'Sheep'],
-//     ballots: [
-//       { ranking: [['Lion'], ['Sheep'], ['Bear']], weight: 3 },
-//       { ranking: [['Sheep'], ['Lion'], ['Bear']], weight: 3 },
-//       { ranking: [['Bear'], ['Sheep'], ['Bear']], weight: 3},
-//     ],
-//   })
-  
-//   const scores = borda.scores()
-//   console.log('scores : ',scores)
-//   // -> { Bear: 10, Lion: 8, Sheep: 9}
-  
-//   const ranking = borda.ranking()
-//   console.log('ranking : ',ranking)
-//   // -> [ [ 'Bear' ], [ 'Sheep' ], [ 'Lion' ] ]
 
 
 
   //Apis 
   app.use('/api/candidate', require('./routes/candidate'))
-  app.use('/api/voting', require('./routes/voting'))
 
   //login apis
   app.use('/api/authentication', require('./routes/auth'))

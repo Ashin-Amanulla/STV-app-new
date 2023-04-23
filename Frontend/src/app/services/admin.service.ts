@@ -20,6 +20,8 @@ export class AdminService {
 
   }
 
+
+  //! CRUD MASTER POSITION LIST 
   addPosition(item:any):Observable<any[]>{
     return this.http.post<any[]>(`${this.api}/position`, item)
   }
@@ -37,7 +39,7 @@ export class AdminService {
   }
 
 
-  //election
+  //! CRUD ELECTION
   getElectionList(){
     return this.http.get(`${this.api}/election`)
   }
@@ -47,17 +49,17 @@ export class AdminService {
   }
 
   getActivePositions(id:any){
-    return this.http.get(`${this.api}/election/${id}/pos`)
+    return this.http.get(`${this.api}/election/${id}/position`)
   }
 
 
   addElecPosition(item:any,id:any):Observable<any[]>{
-    return this.http.post<any[]>(`${this.api}/election/${id}/pos`, item)
+    return this.http.post<any[]>(`${this.api}/election/${id}/position`, item)
   }
 
   deleteElecPosition(item:any,id:any){
     let pos_id = item._id
-    return this.http.delete(`${this.api}/election/${id}/pos/${pos_id}`)
+    return this.http.delete(`${this.api}/election/${id}/position/${pos_id}`)
   }
 
   // candidates 
@@ -65,11 +67,42 @@ getCandidates(id:any,pos_id:any){
   return this.http.get(`${this.api}/election/${id}/pos/${pos_id}`)
 }
 
-applyCandidate(item:any,id:any,pos_id:any){
-  return this.http.post<any[]>(`${this.api}/election/${id}/pos/${pos_id}`, item)
+applyCandidate(item:any,id:any){
+  return this.http.post(`${this.api}/candidates/${id}`, item)
 }
 
-deleteCandidate(cand_id:any,id:any,pos_id:any){
-  return this.http.delete(`${this.api}/election/${id}/pos/${pos_id}/candidate/${cand_id}`)
+
+
+getAllCandidates(){
+  return this.http.get(`${this.api}/candidates`)
+
 }
+
+rejectCandidate(id:any){
+  return this.http.get(`${this.api}/candidates/${id}/reject`)
+
+}
+approveCandidate(id:any){
+  return this.http.get(`${this.api}/candidates/${id}/approve`)
+}
+
+getActiveCandidates(id:any){
+  return this.http.get(`${this.api}/candidates/${id}/active`)
+}
+
+
+
+//! ACTIVE_POSITIONS 
+
+deleteCandidate(id:any,cand_id:any){
+  return this.http.delete(`${this.api}/candidates/${id}/pos/${cand_id}`)
+}
+
+
+
+
+
+
+
+
 }

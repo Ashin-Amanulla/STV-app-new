@@ -183,20 +183,20 @@
         <ul id="dropdown-example" class="hidden py-2 space-y-2">
           <li>
             <a routerLink="declare-election"
-              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              ><i class="bi bi-megaphone"></i>Declare elections</a
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-1 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              ><i class="bi bi-megaphone"></i>Declare New Election</a
             >
           </li>
           <li>
             <a routerLink="upcoming"
-              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              ><i class="bi bi-envelope-paper"></i>Upcoming elections</a
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-1 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              ><i class="bi bi-envelope-paper"></i>Election Settings</a
             >
           </li>
           <li>
             <a
-              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              ><i class="bi bi-envelope-slash"></i>Past Elections</a
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-1 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              ><i class="bi bi-trophy"></i>Result</a
             >
           </li>
         </ul>
@@ -244,14 +244,9 @@
           </svg>
         </button>
         <ul id="candidates-list" class="hidden py-2 space-y-2">
+       
           <li>
-            <a
-              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              ><i class="bi bi-person-check"></i> Candidates List</a
-            >
-          </li>
-          <li>
-            <a
+            <a routerLink="pending-candidates"
               class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               ><i class="bi bi-person-exclamation"></i>New Requests</a
             >

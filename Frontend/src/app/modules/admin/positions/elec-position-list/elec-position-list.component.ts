@@ -30,8 +30,7 @@ export class ElecPositionListComponent {
   getByActivatedRouter() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.api.getActivePositions(this.id).subscribe((res: any) => {
-      this.lists = res.data[0].positions;
-      console.log(this.lists)
+      this.lists = res.data.positions;
       setTimeout(() => this.getExistingPositions()), 500
 
     })
@@ -70,12 +69,12 @@ export class ElecPositionListComponent {
     })
   }
 
-  editItem(id: any) {
-    this.api.editPosition(id).subscribe((res: any) => {
-      console.log(res)
+  // editItem(id: any) {
+  //   this.api.editPosition(id).subscribe((res: any) => {
+  //     console.log(res)
 
-    })
-  }
+  //   })
+  // }
 
   trackByFn(index: number, item: any) {
     return item.id;
