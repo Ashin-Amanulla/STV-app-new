@@ -69,7 +69,7 @@ router.get('/:_id/reject', async (req, res) => {
             $set:{approve:'rejected'}
         })
 
-        candidate ? res.json(candidate) : res.status(400).send({ message: 'Candidate not found with this id' })
+        candidate ? res.json({message:'Rejected!'}) : res.status(400).send({ message: 'Candidate not found with this id' })
     }
     catch (error) {
         res.status(400).send(error)
@@ -83,7 +83,7 @@ router.get('/:_id/approve', async (req, res) => {
         let candidate = await Candidate.findByIdAndUpdate(_id,{
             $set:{approve:'approved'}
         })
-        candidate ? res.json(candidate) : res.status(400).send({ message: 'Candidate not found with this id' })
+        candidate ? res.json({message:'Approved!'}) : res.status(400).send({ message: 'Candidate not found with this id' })
 
     }
     catch (error) {
@@ -112,7 +112,7 @@ router.put('/:_id', async (req, res) => {
         let body = req.body
         let updatedData = { $set: body }
         let updated = await Candidate.findByIdAndUpdate(_id, updatedData, { new: true })
-        updated ? res.status(201).send(updated) : res.status(400).send({ message: "Candidate not found with this id" })
+        updated ? res.status(201).send({message:'Updated!'}) : res.status(400).send({ message: "Candidate not found with this id" })
     }
     catch (error) {
         res.status(400).send(error)

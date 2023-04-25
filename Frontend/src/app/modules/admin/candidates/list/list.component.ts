@@ -15,6 +15,7 @@ export class ListComponent {
   id: any;
   pos_id: any;
   deletingItem: any = null;
+  selected:any={}
 
   ngOnInit() {
     this.getCandidates();
@@ -33,7 +34,10 @@ export class ListComponent {
 
 
 
-  viewItem(id: any) { }
+  viewItem(item: any) { 
+    this.selected = item;
+   
+  }
 
   deleteItem(item: any) {
     let id = item._id;

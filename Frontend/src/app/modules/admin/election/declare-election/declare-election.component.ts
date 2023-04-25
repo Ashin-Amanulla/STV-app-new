@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
-
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-declare-election',
@@ -13,6 +13,12 @@ export class DeclareElectionComponent {
 
 selectedPositions:any
 electionForm!: FormGroup;
+
+// test 
+dropdownList = [];
+  selectedItems = [];
+  dropdownSettings = {};
+  // test 
 
   constructor(private fb: FormBuilder, private router: Router,  private api: AdminService) {
     this.electionForm = this.fb.group({
@@ -48,7 +54,11 @@ electionForm!: FormGroup;
     this.api.getPosition().subscribe((res: any) => {
       console.log(res);
       let allData = res.data
-      this.selectedPositions = allData.filter((e:any)=> e.status)
+      this.selectedPositions = allData.filter((e:any)=> e.status);
+
+      //! test 
+      this.dropdownList = this.selectedPositions //test
+      
     })  }
 
 }

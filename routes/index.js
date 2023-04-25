@@ -6,6 +6,8 @@ router.use('/auth',require('./auth'))
 router.use('/election',require('./declare-vote'))
 router.use('/position',require('./position'))
 router.use('/candidates',require('./candidate'))
+router.use('/complaints',require('./complaints'))
+
 
 
 

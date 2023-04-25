@@ -2,13 +2,24 @@
   <h1
     class="mb-4 text-xl text-center font-bold leading-none tracking-tight text-teal-50 md:text-3xl lg:text-5xl dark:text-white"
   >
-    Candidates
+    Complaints
   </h1>
 
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <div
       class="flex items-center justify-between p-4 bg-white dark:bg-gray-900"
-    ></div>
+    >
+      <div>
+        <button
+          class="inline-flex items-center text-slate-100 bg-red-500 border border-gray-300 focus:outline-none hover:bg-lime-950 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+          type="button"
+          (click)="deleteAll()"
+        >
+          <span class="sr-only">Clear</span>
+          Clear All
+        </button>
+      </div>
+    </div>
 
     <!-- *table  -->
     <div class="table-container">
@@ -17,7 +28,7 @@
           class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
         >
           <tr>
-            <th scope="col" class="px-6 py-3">Sl no</th>
+            <th scope="col" class="px-6 py-3">Ticket no</th>
             <th scope="col" class="px-6 py-3">Name</th>
 
             <th scope="col" class="px-6 py-3">Email</th>
@@ -35,18 +46,15 @@
               scope="row"
               class="flex items-center px-6 py-4 text-gray-500 whitespace-nowrap dark:text-white"
             >
-              <div class="text-sm font-semibold text-center">{{ i + 1 }}</div>
+              <div class="text-sm font-semibold text-center">{{ item.ticketId }}</div>
+              <span *ngIf='!item.opened' class="badge text-bg-success">New </span>
+
             </th>
 
             <td class="px-6 py-4">
               <div class="flex items-center">
-                <div class="font-normal text-gray-500 flex items-center">
-                  <img
-                  class="w-8 h-8 rounded-full mx-3"
-                  src={{item.img}}
-                  alt="user photo"
-                />
-                <div >{{ item.name }}</div>  
+                <div class="font-normal text-gray-500">
+                  {{ item.name }}
                 </div>
               </div>
             </td>
@@ -61,9 +69,9 @@
 
             <td class="px-6 py-4">
               <a
-                (click)="viewItem(item)"
                 data-bs-toggle="modal"
-                data-bs-target="#viewCandidates"
+                data-bs-target="#viewComplaints"
+                (click)="setValue(item)"
                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -115,13 +123,10 @@
   </div>
 </div>
 
-
-
-
 <!-- Add Modal -->
 <div
   class="modal fade"
-  id="viewCandidates"
+  id="viewComplaints"
   tabindex="-1"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
@@ -130,57 +135,31 @@
     <div class="modal-content">
      
       <div class="modal-body">
-        <div
-        
-        class="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8"
-      >
-        <span
-          class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"
-        ></span>
-      
-        <div class="sm:flex sm:justify-between sm:gap-4">
-          <div>
-            <h3 class="text-lg font-bold text-gray-900 sm:text-xl">
-              {{this.selected.name}}
-            </h3>
-      
-            <p class="mt-1 text-xs font-medium text-gray-600">for {{this.selected.position}}</p>
-          </div>
-      
-          <div class="hidden sm:block sm:shrink-0">
-            <img
-              alt="Paul Clapton"
-              src="{{this.selected.img}}"
-              class="h-16 w-16 rounded-lg object-cover shadow-sm"
-            />
+
+        <div class="card">
+          <h2 class="card-title">Ticket : {{this.selected.ticketId}}</h2>
+          <div class="card-content">
+            <div class="field">
+              <label for="name">Name:</label>
+              <span class="value">{{this.selected.name}}</span>
+            </div>
+            <div class="field">
+              <label for="email">Email:</label>
+              <span class="value">{{this.selected.email}}</span>
+            </div>
+            <div class="field">
+              <label for="message">Message:</label>
+              <div class="message-box">
+                <p>{{this.selected.message}}</p>
+              </div>
+            </div>
+         
           </div>
         </div>
-      
-        <div class="mt-4">
-          <p class="max-w-[40ch] text-sm text-gray-500">
-            {{this.selected.desc}}
-          </p>
-        </div>
-      
-        <dl class="mt-6 flex gap-4 sm:gap-6">
-          <div class="flex flex-col-reverse">
-            <dt class="text-sm font-medium text-gray-600">{{this.selected.year}}</dt>
-            <dd class="text-xs text-gray-500">Year of study</dd>
-          
-          </div>
-      
-          <div class="flex flex-col-reverse">
-            <dt class="text-sm font-medium text-gray-600">{{this.selected.email}}</dt>
-            <dd class="text-xs text-gray-500">Email</dd>
-          </div>
-        </dl>
-      </div>
-      
-      
+
         
+
       </div>
     </div>
   </div>
 </div>
-
-

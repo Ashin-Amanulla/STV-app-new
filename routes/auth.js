@@ -2,7 +2,7 @@ const express = require('express')
 const Login = require('../models/login')
 const router = express.Router()
 const emailRegex = /^[^\s@]+@([^\s@]+\.)*gmail\.[^\s@]+$/;
-const sendMail = require('../helpers/mail')
+const {sendMail} = require('../helpers/mail')
 const generateOtp = require('../helpers/generateOTP')
 
 router.post('/sendOtp', async (req, res) => {
