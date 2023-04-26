@@ -37,7 +37,6 @@ router.post('/loginWithOtp', async (req, res) => {
         let { email, otp } = req.body
         console.log(req.body)
         let isEmail = emailRegex.test(email)
-        isEmail = true //------------------------SHOULD CHANGE LATER
         if (!isEmail) throw ('Invalid Email') //!error handle
 
         let data = await Login.findOne({ email })
