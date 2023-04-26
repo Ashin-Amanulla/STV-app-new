@@ -11,18 +11,18 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
 })
 export class DeclareElectionComponent {
 
-selectedPositions:any
-electionForm!: FormGroup;
+  selectedPositions: any
+  electionForm!: FormGroup;
 
-// test 
-dropdownList = [];
+  // test 
+  dropdownList = [];
   selectedItems = [];
-  dropdownSettings = {};
+  dropdownSettings: IDropdownSettings = {};
   // test 
 
-  constructor(private fb: FormBuilder, private router: Router,  private api: AdminService) {
+  constructor(private fb: FormBuilder, private router: Router, private api: AdminService) {
     this.electionForm = this.fb.group({
-      title:['', Validators.required],
+      title: ['', Validators.required],
       nomination_start: ['', Validators.required],
       nomination_end: ['', Validators.required],
       voting_start: ['', Validators.required],
@@ -39,26 +39,45 @@ dropdownList = [];
 
   onSubmit(): void {
 
-    this.electionForm.value.positions = this.selectedPositions
+    // this.electionForm.value.positions = this.selectedItems
+    console.log(this.electionForm.value)
     let value = this.electionForm.value;
-    this.api.declareElection(value).subscribe(res => {
-      console.log(res)
-      this.router.navigate(['/admin'])
-    })
+    // this.api.declareElection(value).subscribe(res => {
+    //   console.log(res)
+    //   this.router.navigate(['/admin'])
+    // })
   }
 
- 
-  
 
-  ngOnInit(){
+
+
+  ngOnInit() {
+
     this.api.getPosition().subscribe((res: any) => {
       console.log(res);
       let allData = res.data
-      this.selectedPositions = allData.filter((e:any)=> e.status);
-
-      //! test 
+      this.selectedPositions = allData.filter((e: any) => e.status);
       this.dropdownList = this.selectedPositions //test
-      
-    })  }
+
+    })
+    //! test 
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: '_id',
+      textField: 'title',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      allowSearchFilter: true
+    };
+  }
+
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
+
 
 }

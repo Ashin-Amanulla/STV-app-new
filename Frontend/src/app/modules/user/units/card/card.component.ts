@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
-import { positions } from 'src/assets/data';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -17,8 +16,8 @@ export class CardComponent {
       this.positions = res.data[0].positions
     })  }
     
-  goto(position: string) {
-    localStorage.setItem('position', position)
-    this.router.navigate(['user/candidates'])
+  goto(position: any) {
+    localStorage.setItem('position', position._id)
+    this.router.navigate([`user/candidates/${position.title}`])
   }
 }

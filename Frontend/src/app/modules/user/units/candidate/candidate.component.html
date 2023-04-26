@@ -5,7 +5,7 @@
     <span class="icon solid fa-left-long"></span><strong>Go back</strong>
   </h3>
   <h2 style="text-align: center; margin: 20px 0">
-    Meet the <strong>{{ position }}</strong> candidates
+    Meet the <strong>{{ pos }}</strong> candidates
   </h2>
 </div>
 
@@ -19,9 +19,9 @@
       <section>
         <a
           class="image featured"
-          (click)="addto(candidate.name)"
+          (click)="addto(candidate)"
           style="cursor: pointer"
-          ><img src="{{ candidate.imageUrl }}" alt=""
+          ><img class="imgSize" src="{{ candidate.img }}" alt=""
         /></a>
         <header>
           <h3>{{ candidate.name }}</h3>
@@ -57,7 +57,7 @@
       <tbody>
         <tr *ngFor="let p of preference; let i = index">
           <td>{{ i + 1 }}</td>
-          <td>{{ p }}</td>
+          <td>{{ p.name}}</td>
         </tr>
       </tbody>
     </table>
@@ -73,16 +73,17 @@
         (click)="reset()"
         >reset</a
       >
-      <a
+      <button
       class="button icon solid fa-square-check"
       style="
         margin-top: 10px;
-        cursor: pointer;
         margin-left: 5px;
         background-color: #22cf3f;
       "
-      (click)="submit()"
-      >submit</a
+      (click)="submit()" 
+      [ngClass]="{'disabled-button': isDisabled}" 
+      [disabled]="isDisabled"
+      >submit</button
     >
       <a
       class="button icon solid fa-circle-dot"

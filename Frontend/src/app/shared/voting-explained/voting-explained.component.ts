@@ -21,4 +21,7 @@ export class VotingExplainedComponent {
     })
   }
 
+  login(){
+    this.router.navigate(['/login']) 
+  }
 }

@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthService } from './services/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AdminService } from './services/admin.service';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -26,7 +27,11 @@ import { AdminService } from './services/admin.service';
     SharedModule,
     HttpClientModule,
   ],
-  providers: [AuthService,AdminService],
+  providers: [AuthService,AdminService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

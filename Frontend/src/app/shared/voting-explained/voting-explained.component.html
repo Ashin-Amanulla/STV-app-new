@@ -36,7 +36,7 @@
           </p>
           <ul class="actions">
             <li>
-              <a  class="button icon solid fa-square-poll-vertical"
+              <a (click)="login()" routerLinkActive="router-link-active"  class="button icon solid fa-square-poll-vertical"
                 >Vote Now</a
               >
             </li>
@@ -76,7 +76,7 @@
                 <ul class="actions">
                   <li>
                     <a
-                      (click)="goto()"
+                    (click)="login()"
                       style="cursor: pointer"
                       class="button icon solid fa-hand-pointer"
                       >Nominate yourself
@@ -106,7 +106,7 @@
                 <ul class="actions">
                   <li>
                     <a
-                      
+                    (click)="login()"
                       class="button icon solid fa-square-poll-vertical"
                       >Vote Now
                     </a>

@@ -56,4 +56,4 @@ router.post('/loginWithOtp', async (req, res) => {
     }
 })
 
-module.exports = router
+module.exports = router;

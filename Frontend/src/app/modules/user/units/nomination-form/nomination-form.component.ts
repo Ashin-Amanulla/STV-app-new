@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { positions } from 'src/assets/data';
 import { AdminService } from 'src/app/services/admin.service';
 @Component({
   selector: 'app-nomination-form',
