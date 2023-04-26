@@ -50,8 +50,7 @@
             [(ngModel)]="selectedItem"
             (change)="onSelectionChange()"
           >
-            <option value="">Select a position</option>
-            <option value="{{ p.title }}" *ngFor="let p of position">{{ p.title }}</option>
+            <option [ngValue]="p" *ngFor="let p of position">{{ p.title }}</option>
           </select>
         </div>
         <div class="form-group">

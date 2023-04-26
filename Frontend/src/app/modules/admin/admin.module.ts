@@ -12,6 +12,10 @@ import { ElecPositionListComponent } from './positions/elec-position-list/elec-p
 import { ListComponent } from './candidates/list/list.component';
 import { SharedModule } from "../../shared/shared.module";
 import { PendingCandidatesComponent } from './candidates/pending-candidates/pending-candidates.component';
+import { ComplaintsComponent } from './units/complaints/complaints.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
+
 
 @NgModule({
     declarations: [
@@ -23,6 +27,7 @@ import { PendingCandidatesComponent } from './candidates/pending-candidates/pend
         ElecPositionListComponent,
         ListComponent,
         PendingCandidatesComponent,
+        ComplaintsComponent,
     ],
     imports: [
         CommonModule,
@@ -30,7 +35,8 @@ import { PendingCandidatesComponent } from './candidates/pending-candidates/pend
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
-        SharedModule
+        SharedModule,
+        NgMultiSelectDropDownModule.forRoot()
     ]
 })
 export class AdminModule { }

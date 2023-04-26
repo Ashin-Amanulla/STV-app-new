@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
-
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-declare-election',
@@ -11,12 +11,18 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class DeclareElectionComponent {
 
-selectedPositions:any
-electionForm!: FormGroup;
+  selectedPositions: any
+  electionForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router,  private api: AdminService) {
+  // test 
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings: IDropdownSettings = {};
+  // test 
+
+  constructor(private fb: FormBuilder, private router: Router, private api: AdminService) {
     this.electionForm = this.fb.group({
-      title:['', Validators.required],
+      title: ['', Validators.required],
       nomination_start: ['', Validators.required],
       nomination_end: ['', Validators.required],
       voting_start: ['', Validators.required],
@@ -33,23 +39,45 @@ electionForm!: FormGroup;
 
   onSubmit(): void {
 
-    this.electionForm.value.positions = this.selectedPositions
+    // this.electionForm.value.positions = this.selectedItems
+    console.log(this.electionForm.value)
     let value = this.electionForm.value;
-    console.log(value)
-
-    this.api.declareElection(value).subscribe(res => {
-      console.log(res)
-    })
+    // this.api.declareElection(value).subscribe(res => {
+    //   console.log(res)
+    //   this.router.navigate(['/admin'])
+    // })
   }
 
- 
-  
 
-  ngOnInit(){
+
+
+  ngOnInit() {
+
     this.api.getPosition().subscribe((res: any) => {
       console.log(res);
       let allData = res.data
-      this.selectedPositions = allData.filter((e:any)=> e.status)
-    })  }
+      this.selectedPositions = allData.filter((e: any) => e.status);
+      this.dropdownList = this.selectedPositions //test
+
+    })
+    //! test 
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: '_id',
+      textField: 'title',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      allowSearchFilter: true
+    };
+  }
+
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
+
 
 }

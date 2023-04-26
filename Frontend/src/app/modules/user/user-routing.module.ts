@@ -10,8 +10,9 @@ const routes: Routes = [
   {
     path:'',component:UserHomeComponent
   },
+  
   {
-    path:'candidates',component:CandidateComponent
+    path:'candidates/:position',component:CandidateComponent
   },
   {
     path:'nomination',component:NominationFormComponent

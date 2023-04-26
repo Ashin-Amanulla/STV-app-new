@@ -15,19 +15,17 @@ export class ListComponent {
   id: any;
   pos_id: any;
   deletingItem: any = null;
+  selected:any={}
 
   ngOnInit() {
     this.getCandidates();
   }
 
   getCandidates() {
-    this.id = this.route.snapshot.paramMap.get('id');
     this.pos_id = localStorage.getItem('pos_id');
-    let pos = localStorage.getItem('position')
-    this.api.getActivePositions(this.id).subscribe((res: any) => {
-      let incomingData = res.data[0].positions;
-      let candidates = incomingData.filter((e: any) => e.title === pos);
-      this.lists = candidates[0].candidates
+
+    this.api.getActiveCandidates(this.pos_id).subscribe((res: any) => {
+      this.lists = res
       console.log(this.lists)
     })
   }
@@ -36,13 +34,16 @@ export class ListComponent {
 
 
 
-  viewItem(id: any) { }
+  viewItem(item: any) { 
+    this.selected = item;
+   
+  }
 
   deleteItem(item: any) {
     let id = item._id;
     this.deletingItem = item;
 
-    this.api.deleteCandidate(id, this.id, this.pos_id).subscribe((res: any) => {
+    this.api.deleteCandidate( this.pos_id, id).subscribe((res: any) => {
       console.log(res)
       setTimeout(() => {
         this.lists = this.lists.filter((e: any) => e._id !== id)

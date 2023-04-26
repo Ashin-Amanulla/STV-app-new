@@ -10,7 +10,7 @@ import { AdminService } from 'src/app/services/admin.service';
 export class VotingExplainedComponent {
 
   constructor(private router: Router, private api:AdminService) { }
-  election:any
+  election:any={}
   goto() {
    this.router.navigate(['/user/nomination']) 
   }
@@ -21,4 +21,7 @@ export class VotingExplainedComponent {
     })
   }
 
+  login(){
+    this.router.navigate(['/login']) 
+  }
 }

@@ -1,45 +1,39 @@
 const mongoose = require('mongoose');
-const moment = require('moment');
 
 
-const CandidateSchema = new mongoose.Schema({
+const candidateSchema = new mongoose.Schema({
     name: { type: String, required: true },
     desc: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    email: { type: String,required:true },
     year: { type: String, required: true },
+    position: { type: String, required: true },
     img: { type: String, required: true },
     ads: [{ type: String, required: true }],
     approve: {
-        type: Boolean, default: false,
-    }
+        type: String,
+        enum:['pending','rejected','approved'],
+         default: 'pending',
+    },
+    posRef: { type: mongoose.Schema.Types.ObjectId, ref: 'PositionsInElection' },
 }, { timestamps: true })
 
-const CandidateModel = mongoose.model('candidate', CandidateSchema);
 
 
-const PostSchema = new mongoose.Schema({
+const positionSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
+        
     },
-    candidates: [CandidateSchema],
-    votes: [{
-        email: { type: String, required: true },
-        rankings: []
-    }],
+    candidates: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Candidate' }],
     voters: [],
-    winner: {
-
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'candidates',
-        default: null
-    }
+    votes: [],
+    winner: { type: mongoose.Schema.Types.ObjectId,ref:'Candidate'}
+ 
 })
 
-const newPostModel = mongoose.model('newpost', PostSchema)
 
 
-const ElectionSchema = new mongoose.Schema({
+const electionSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -71,7 +65,8 @@ const ElectionSchema = new mongoose.Schema({
         required: true
 
     },
-    positions: [PostSchema]
+    // positions: [PostSchema],
+    positions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'PositionsInElection' }],
 
 }, { timestamps: true });
 
@@ -81,24 +76,13 @@ const ElectionSchema = new mongoose.Schema({
 
 
 
-ElectionSchema.pre('save', async function () {
-    // Loop through each child and save it to the child collection
-    for (let i = 0; i < this.positions.length; i++) {
-        let data = { title: this.positions[i].title }
-        console.log(data);
-        const child = new newPostModel(data);
-        await child.save();
-        // Replace the child object in the parent array with its ID
-        // this.positions[i] = child._id;
-    }
-});
 
 
 
 
+const Candidate = mongoose.model('Candidate', candidateSchema);
+const Position = mongoose.model('PositionsInElection', positionSchema);
+const Election = mongoose.model('Election', electionSchema);
 
 
-const ElectionModel = mongoose.model('election', ElectionSchema);
-
-
-module.exports = { ElectionModel, newPostModel, CandidateModel };
+module.exports = {Candidate,Position,Election};
