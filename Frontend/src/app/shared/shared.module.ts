@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { VotingExplainedComponent } from './voting-explained/voting-explained.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateFormatterPipe } from '../pipes/date-formatter.pipe';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { DateFormatterPipe } from '../pipes/date-formatter.pipe';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    SweetAlert2Module
     
   ],
   exports:[
@@ -23,7 +25,8 @@ import { DateFormatterPipe } from '../pipes/date-formatter.pipe';
     VotingExplainedComponent,
     FormsModule,
     ReactiveFormsModule,
-    DateFormatterPipe
+    DateFormatterPipe,
+    SweetAlert2Module
     
   ]
 })

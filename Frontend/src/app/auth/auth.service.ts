@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode"
 
 interface MyToken {
   admin: boolean,
-  id: string,
+  email: string,
   login: boolean,
 
 
@@ -53,20 +53,21 @@ export class AuthService {
 
   }
 
-  idFetch() {
+  emailFetch() {
     let token = localStorage.getItem('accessToken') || '';
 
     try {
       let user = jwt_decode<MyToken>(token);
-      return user.id;
+      return user.email;
 
     } catch (error) {
       console.log('Token error', error)
       return 'no user available'
     }
-
-
   }
+
+
+  
   beforeOTP(item: any) {
     return this.http.post(`${this.api}/auth/sendOtp`, item)
   }  

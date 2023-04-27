@@ -13,7 +13,7 @@
         formControlName="email"
         required
       />
-      <button type="submit" class="button" >Get OTP</button>
+      <button type="submit" [disabled]="emailLogin.pristine || emailLogin.invalid" class="button" >Get OTP</button>
     </div>
   </form>
   <form [formGroup]="otpLogin" (ngSubmit)="login()">
@@ -27,7 +27,7 @@
         formControlName="otp"
         required
       />
-      <button type="submit" class="button" >Login</button>
+      <button type="submit" [disabled]="otpLogin.pristine || otpLogin.invalid" class="button" >Login</button>
     </div>
   </form>
 </div>

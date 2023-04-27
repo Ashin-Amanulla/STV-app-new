@@ -25,12 +25,14 @@
                   formControlName="email"
                 />
               </div>
+           
               <div class="col-12">
                 <textarea name="message" placeholder="Message"
                 formControlName="message"></textarea>
               </div>
               <div class="col-12">
                 <button
+                [disabled]="complaintForm.pristine || complaintForm.invalid"
                   clbuttonss="form-button-submit button icon solid fa-envelope"
                   >Send Message</button
                 >
