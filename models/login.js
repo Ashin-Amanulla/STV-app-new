@@ -11,14 +11,8 @@ const loginSchema = new Schema({
         type: String,
     },
 
-    loggedIn: {
-        type: Boolean,
-        default: false
-    },
 
-    token: {
-        type: String,
-    }
+    admin:{type:Boolean, default: false}
 }, {
     timestamps: true,
 });

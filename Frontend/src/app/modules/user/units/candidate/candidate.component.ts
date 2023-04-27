@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { Candidate } from 'src/app/interface/candidate';
+import { AdminService } from 'src/app/services/admin.service';
 @Component({
   selector: 'app-candidate',
   templateUrl: './candidate.component.html',
@@ -20,8 +21,9 @@ export class CandidateComponent {
   preference: Candidate[] = []
   selectedOrder: string[] = [];
   isDisabled: boolean = true;
-
-  constructor(private router: Router, private api: UserService, private route: ActivatedRoute) { }
+  showVotingButton: boolean = false
+  election: any
+  constructor(private router: Router, private apiAdmin: AdminService, private api: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.position = localStorage.getItem('position')
@@ -29,9 +31,18 @@ export class CandidateComponent {
     this.api.getCandidates(this.position).subscribe((res: any) => {
       this.data = res;
     })
+
+    this.apiAdmin.getElectionList().subscribe((res: any) => {
+      this.election = res.data[0];
+      this.dateCheck(this.election)
+
+    })
   }
 
   addto(obj: any) {
+    if (!this.showVotingButton) {
+      return
+    }
     if (this.preference.length === 0) {
       this.preference.push(obj)
     } else {
@@ -51,6 +62,7 @@ export class CandidateComponent {
     this.selectedOrder = this.preference.map(e => e._id)
     if (this.selectedOrder.length > 0) { this.isDisabled = false }
     else { this.isDisabled = true }
+    console.log("hi")
   }
 
   goBack() {
@@ -83,4 +95,16 @@ export class CandidateComponent {
       })
     }
   }
+
+  dateCheck(election: any): void {
+    const now = new Date();
+    const votingStartDate = new Date(election.voting_start);
+    const votingEndDate = new Date(election.voting_end);
+    if (now >= votingStartDate && now <= votingEndDate) {
+      this.showVotingButton = true;
+    }
+
+  }
+
+
 }

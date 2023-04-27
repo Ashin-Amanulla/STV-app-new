@@ -34,64 +34,68 @@
   </div>
 
 
-  <div class="note">
-    <p
-      class="icon solid fa-triangle-exclamation"
-      style="color: rgba(255, 162, 0, 0.806)"
-    >
-      <span style="color: black"> Note</span>
-    </p>
-    <p class="text-yellow-500 text-sm">
-      Click the candidate card to add/remove the candidate name to preference
-      list or click the abstain button for vote abstaining.
-    </p>
-  </div>
-  <div class="table-responsive">
-    <table>
-      <thead>
-        <tr>
-          <th>Preference Number</th>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let p of preference; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ p.name}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="flexDiv">
-      <a
-        class="button icon solid fa-arrow-rotate-left"
+  <div *ngIf="showVotingButton">
+    <div class="note">
+      <p
+        class="icon solid fa-triangle-exclamation"
+        style="color: rgba(255, 162, 0, 0.806)"
+      >
+        <span style="color: black"> Note</span>
+      </p>
+      <p class="text-yellow-500 text-sm">
+        Click the candidate card to add/remove the candidate name to preference
+        list or click the abstain button for vote abstaining.
+      </p>
+    </div>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Preference Number</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of preference; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ p.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="flexDiv">
+        <a
+          class="button icon solid fa-arrow-rotate-left"
+          style="
+            margin-top: 10px;
+            cursor: pointer;
+            margin-left: 5px;
+            background-color: #b63535;
+          "
+          (click)="reset()"
+          >reset</a
+        >
+        <button
+        class="button icon solid fa-square-check"
         style="
           margin-top: 10px;
-          cursor: pointer;
           margin-left: 5px;
-          background-color: #b63535;
+          background-color: #22cf3f;
         "
-        (click)="reset()"
-        >reset</a
+        (click)="submit()" 
+        [ngClass]="{'disabled-button': isDisabled}" 
+        [disabled]="isDisabled"
+        >submit</button
       >
-      <button
-      class="button icon solid fa-square-check"
-      style="
-        margin-top: 10px;
-        margin-left: 5px;
-        background-color: #22cf3f;
-      "
-      (click)="submit()" 
-      [ngClass]="{'disabled-button': isDisabled}" 
-      [disabled]="isDisabled"
-      >submit</button
-    >
-      <a
-      class="button icon solid fa-circle-dot"
-      style="margin-top: 10px; cursor: pointer;background-color:rgba(0, 0, 0, 0.4);  "
-      (click)="abstain()"
-      >abstain</a
-    >
-    
+        <a
+        class="button icon solid fa-circle-dot"
+        style="margin-top: 10px; cursor: pointer;background-color:rgba(0, 0, 0, 0.4);  "
+        (click)="abstain()"
+        >abstain</a
+      >
+      
+      </div>
     </div>
   </div>
+
+
 </div>

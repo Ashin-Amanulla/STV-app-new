@@ -14,11 +14,13 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'user',canActivate: [AuthGuard],
+    path: 'user',
+    // canActivate: [AuthGuard],
     loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule),
   },
   {
-    path: 'admin', canActivate:[RoleGuard],
+    path: 'admin', 
+    // canActivate:[RoleGuard],
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
   },
   

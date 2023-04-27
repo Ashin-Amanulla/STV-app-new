@@ -6,7 +6,7 @@
       <section >
            <img width="100%"  src="../../../../assets/images/RSU-Elections-2023-Page-Banner.png" alt="">
       </section>
-      <ul class="actions">
+      <ul class="actions" *ngIf="showNominationButton">
         <li>
           <a routerLink="nomination" class="button icon solid fa-file"
             >Nominate yourself

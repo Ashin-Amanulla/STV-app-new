@@ -11,6 +11,8 @@ import { AuthService } from './auth/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AdminService } from './services/admin.service';
 import { TokenInterceptorService } from './auth/token-interceptor.service';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { TokenInterceptorService } from './auth/token-interceptor.service';
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    SweetAlert2Module
   ],
   providers: [AuthService,AdminService,{
     provide: HTTP_INTERCEPTORS,

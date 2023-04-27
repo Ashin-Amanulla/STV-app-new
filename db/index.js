@@ -1,13 +1,27 @@
 const mongoose = require("mongoose");
 const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017'
-
+const Login = require('../models/login')
 mongoose
   .connect(mongoURI, {
     dbName: process.env.DB_NAME,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => {
+  .then(async () => {
+
+    
+    const item = {
+      email: 'admin@gmail.com',
+      otp:124,
+      admin:true
+    };
+
+    const doesExist = await Login.findOne({ email: item.email })
+    if (!doesExist) {
+      const data = new Login(item)
+      await data.save()
+    }
+
     console.log(`mongodb connected `);
   })
   .catch((error) => {

@@ -12,6 +12,9 @@ export class UserHomeComponent {
   navClick: boolean = false;
   election: any
   positions:any
+  showNominationButton:boolean=false
+
+
   constructor(private router: Router, private api: AdminService) { }
 
 
@@ -20,6 +23,7 @@ export class UserHomeComponent {
       this.election = res.data[0]
       this.positions = res.data[0].positions
       console.log(this.positions)
+      this.dateCheck(this.election)
     })
   }
   showNav() {
@@ -36,7 +40,20 @@ export class UserHomeComponent {
 
 
   logout() {
+    localStorage.clear();
     this.router.navigate(['/'])
   }
+
+  dateCheck(election:any):void{
+    const now = new Date();
+    const nominationStartDate = new Date(election.nomination_start);
+    const nominationEndDate = new Date( election.nomination_end);
+    if (now >= nominationStartDate && now <= nominationEndDate) {
+      this.showNominationButton = true;
+    }
+  
+    }
+
+  
 
 }

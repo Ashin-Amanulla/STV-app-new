@@ -14,6 +14,7 @@ import { SharedModule } from "../../shared/shared.module";
 import { PendingCandidatesComponent } from './candidates/pending-candidates/pending-candidates.component';
 import { ComplaintsComponent } from './units/complaints/complaints.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ResultsComponent } from './results/results.component';
 
 
 
@@ -28,6 +29,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
         ListComponent,
         PendingCandidatesComponent,
         ComplaintsComponent,
+        ResultsComponent,
     ],
     imports: [
         CommonModule,

@@ -29,60 +29,50 @@ export class LoginComponent {
 
   getOtp() {
     let value = this.emailLogin.value;
-    this.auth.beforeOTP(value).subscribe((res:any) => {
-      console.log('hi')
-         if (res.status) {
-      Swal.fire({
-        icon: 'success',
-        title: ' Sent',
-        showConfirmButton: false,
-        timer: 1500
-      }).then(() => {
-        this.emailLogin.reset();
-        localStorage.setItem('email', value.email)
-        this.showDiv = !this.showDiv;
-      })
-    }
-    else {
-      Swal.fire({
-        icon: 'error',
-        title: 'res.error',
-        showConfirmButton: false,
-        timer: 1500
-      }).then(() => {
-        this.emailLogin.reset()
-      })
-    }
+    this.auth.beforeOTP(value)
+      .subscribe({
 
-
-    })
+        next: (res: any) => {
+          this.emailLogin.reset();
+          localStorage.setItem('email', value.email)
+          this.showDiv = !this.showDiv;
+          Swal.fire('Success', `${res.message}`, 'success')
+        },
+        error: (err: any) => {
+          console.log(err.error.error)
+          this.emailLogin.reset()
+          Swal.fire('Failed', `${err.error.error}`, 'error')
+        },
+        complete:()=>{
+          console.log('Success')
+        }
+      })
   }
 
-  login() {
+  login(): void {
     let otp = this.otpLogin.value.otp;
     let email = localStorage.getItem('email');
     let value = { email, otp }
-    this.auth.afterOTP(value).subscribe((res:any) => {
-      if (res.status) {
-        Swal.fire({
-          icon: 'success',
-          title: ' Sent',
-          showConfirmButton: false,
-          timer: 1500
-        }).then(() => {
-          this.otpLogin.reset();
-          this.router.navigate(['/user']);        })
+    this.auth.afterOTP(value).subscribe({
+
+      next: (res: any) => {
+        console.log(res)
+        localStorage.setItem('accessToken', res.token)
+        Swal.fire('Success', `${res.message}`, 'success')
+      },
+      error: (err: any) => {
+        console.log(err.error.error)
+        Swal.fire('Failed', `${err.error.error}`, 'error')
+      },
+      complete:()=>{
+        if(this.auth.isAdmin()){
+          this.router.navigate(['/admin']);
+        }
+        else{
+          this.router.navigate(['/user']);
+
+        }
       }
-      else {
-        Swal.fire({
-          icon: 'error',
-          title: 'res.error',
-          showConfirmButton: false,
-          timer: 1500
-        }).then(() => {
-          this.otpLogin.reset()
-        })
-      }     
     })
 
   }

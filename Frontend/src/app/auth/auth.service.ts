@@ -22,7 +22,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
 
-  
+
   // login check 
   isLoggedIn(): boolean {
     var token = localStorage.getItem('accessToken') || '';
@@ -67,11 +67,11 @@ export class AuthService {
   }
 
 
-  
+
   beforeOTP(item: any) {
     return this.http.post(`${this.api}/auth/sendOtp`, item)
-  }  
-  
+  }
+
   afterOTP(item: any) {
     return this.http.post(`${this.api}/auth/loginWithOtp`, item)
   }
@@ -80,4 +80,8 @@ export class AuthService {
   getToken() {
     return localStorage.getItem('accessToken')
   }
+
+
+
+
 }

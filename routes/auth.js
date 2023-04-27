@@ -2,16 +2,18 @@ const express = require('express')
 const Login = require('../models/login')
 const router = express.Router()
 const emailRegex = /^[^\s@]+@([^\s@]+\.)*gmail\.[^\s@]+$/;
-const {sendMail} = require('../helpers/mail')
+const { sendMail } = require('../helpers/mail')
 const generateOtp = require('../helpers/generateOTP')
+const { signAccessToken } = require('../middlewares/jwt_helper')
 
 router.post('/sendOtp', async (req, res) => {
     try {
         let email = req.body.email
         let isEmail = emailRegex.test(email)
-        if (!isEmail) throw ('Invalid Email') //!error handle
+        if (!isEmail) throw ('Invalid Email.Try login with college ID') //!error handle
 
-        let otp = generateOtp()
+        let otp = generateOtp();
+        console.log(otp)
         await sendMail(email, otp)   //send email
         let emailFound = await Login.findOne({ email })
 
@@ -23,12 +25,12 @@ router.post('/sendOtp', async (req, res) => {
             await login.save()
         }
 
-        res.status(200).json({ message: 'Email send successfully', otp: otp })
+        res.status(200).json({ message: 'Email send successfully', otp: otp, status: true })
 
     }
     catch (error) {
         console.log(error)
-        res.status(400).send(error)
+        res.status(400).json({ error: error, status: false })
     }
 })
 
@@ -41,17 +43,18 @@ router.post('/loginWithOtp', async (req, res) => {
 
         let data = await Login.findOne({ email })
         if (!data) throw ('Email not found in db') //!error handle
+        if (otp !== data.otp) throw ('Invalid OTP') //!error handle
+        //login successfull
+        const user = { email: email, admin: data.admin, login: true }
 
-        if (otp === data.otp) {
-            //login successfull
-            res.status(201).send({ message: 'Login Successfull' });
-            //setting token
-        }
-        else res.status(400).send({ message: 'Invalid Otp' });
+        const accessToken = await signAccessToken(user)
+        console.log(accessToken)
+        res.status(201).send({ token: accessToken, message: 'Login Successfull', status: true });
+        //setting token
 
     }
     catch (error) {
-        res.status(400).send(error)
+        res.status(400).json({ error: error, status: false })
     }
 })
 
