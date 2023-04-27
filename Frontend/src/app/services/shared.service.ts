@@ -31,4 +31,9 @@ export class SharedService {
     return this.http.delete(`${this.api}/complaints`)
 
   }
+
+  getWinnerCandidates(){
+    return this.http.get(`${this.api}/winners`)
+
+  }
 }

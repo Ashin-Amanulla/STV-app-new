@@ -3,7 +3,7 @@ const helmet = require("helmet");
 const cors = require('cors')
 const logger =require('morgan')
 const compression = require('compression')
-
+const scheduledFunctions = require('./scheduledFunctions')
 
 require('dotenv').config() //environmental variables
 require('./db') //DB initialisation
@@ -16,9 +16,11 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(compression())
-
+scheduledFunctions.initResult();
 // routeHandler 
 app.use('/api',require('./routes'))
+
+
 
 
 

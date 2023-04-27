@@ -1,13 +1,23 @@
 //!-------------- MAIN ------ 
-const stvWinner = votes => {
-    let winner
-    const seats = 1; // Number of seats available
+const stvWinner = (votes) => {
 
-    getWinner(votes, seats, res => winner = res);
-    return winner
+    try {
+
+        console.log('enterd stv', votes)
+        let winner
+        const seats = 1; // Number of seats available
+
+        getWinner(votes, seats, res => winner = res);
+        return winner
+    }
+
+    catch (error) {
+        console.log(error)
+        return error
+    }
+
+
 }
-
-
 
 
 
@@ -37,7 +47,7 @@ const transferVotes = (votes, candidateToEliminate) => votes.map(vote => vote.fi
 function getWinner(votes, seats, callback) {
     let winner;
     let voteCountArray = []; //to count the number of votes present for winner finding
-
+    let totalVotes = votes.length
     const quota = Math.floor(totalVotes / (seats + 1)) + 1; // Calculate the quota
 
     // to find the longest array size so that ranking can be done
@@ -100,4 +110,4 @@ function getWinner(votes, seats, callback) {
 }
 
 
-module.exports = stvWinner
+module.exports = stvWinner;

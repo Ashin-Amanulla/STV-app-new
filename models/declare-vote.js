@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const cron = require('node-cron');
 
 const candidateSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -61,7 +60,7 @@ const electionSchema = new mongoose.Schema({
 
     },
     result_day: {
-        type: Date,
+        type: String,
         required: true
 
     },
@@ -84,16 +83,6 @@ const Candidate = mongoose.model('Candidate', candidateSchema);
 const Position = mongoose.model('PositionsInElection', positionSchema);
 const Election = mongoose.model('Election', electionSchema);
 
-
-
-cron.schedule('* * * * *', async () => {
-    // Check the database for the target date
-    const targetDate = await Election.findOne({ result_day: { $lte: new Date() } });
-    if (targetDate) {
-      // If the target date has been reached, start the task
-      doTask();
-    }
-  });
 
 
 

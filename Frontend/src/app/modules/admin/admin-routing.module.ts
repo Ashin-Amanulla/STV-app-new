@@ -8,6 +8,7 @@ import { ElecPositionListComponent } from './positions/elec-position-list/elec-p
 import { ListComponent } from './candidates/list/list.component';
 import { PendingCandidatesComponent } from './candidates/pending-candidates/pending-candidates.component';
 import { ComplaintsComponent } from './units/complaints/complaints.component';
+import { ResultsComponent } from './results/results.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,9 @@ const routes: Routes = [
       },
       {
         path: 'complaints', component: ComplaintsComponent
+      },
+      {
+        path: 'results', component: ResultsComponent
       },
       
     ]
