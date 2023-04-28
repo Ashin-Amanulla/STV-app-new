@@ -42,10 +42,10 @@ export class DeclareElectionComponent {
     // this.electionForm.value.positions = this.selectedItems
     console.log(this.electionForm.value)
     let value = this.electionForm.value;
-    // this.api.declareElection(value).subscribe(res => {
-    //   console.log(res)
-    //   this.router.navigate(['/admin'])
-    // })
+    this.api.declareElection(value).subscribe(res => {
+      console.log(res)
+      this.router.navigate(['/admin'])
+    })
   }
 
 
