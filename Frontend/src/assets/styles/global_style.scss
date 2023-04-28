@@ -1768,7 +1768,7 @@ input, select, textarea {
 		-webkit-appearance: none;
 		position: relative;
 		display: inline-block;
-		background: #ed786a;
+		background: #A463F2         ;
 		color: #fff !important;
 		text-transform: uppercase;
 		border-radius: 4px;
@@ -1924,6 +1924,8 @@ input, select, textarea {
 
 			#header h1 a {
 				border: 0;
+				color: #ed786a;
+
                 line-height: 2em;
 			}
 
@@ -1978,14 +1980,14 @@ input, select, textarea {
 				text-decoration: none;
 				text-transform: uppercase;
 				font-weight: 400;
-				color: #777;
+				color: #A463F2 ;
 				outline: 0;
 				display: block;
 			}
 
 				#nav > ul > li > a:before {
 					display: inline-block;
-					background: #878787;
+					background: #A463F2 ;
 					color: #e4e4e4;
 					width: 2.25em;
 					font-size: 0.8em;
@@ -2018,13 +2020,13 @@ input, select, textarea {
 
 			#nav > ul > li.active > a:before,
 			#nav > ul > li:hover > a:before {
-				background: #ED786A;
+				background: #ae7fe9 ;
 				color: #fff;
 			}
 
 			#nav > ul > li.active > a > span,
 			#nav > ul > li:hover > a > span {
-				color: #ED786A;
+				color: #ae7fe9 ;
 			}
 
 	.dropotron {
