@@ -23,12 +23,12 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule),
   },
   {
     path: 'admin', 
-    // canActivate:[RoleGuard],
+    canActivate:[RoleGuard],
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
   },
   
