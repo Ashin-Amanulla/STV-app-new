@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AdminService } from 'src/app/services/admin.service';
 import { SharedService } from 'src/app/services/shared.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-results',
@@ -10,8 +11,8 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class ResultsComponent {
 
+  constructor(private router:Router, private api:SharedService) { }
 
-  constructor(private route: ActivatedRoute, private api:SharedService, private router: Router) { }
 
   lists: any;
   id: any;
@@ -19,10 +20,10 @@ export class ResultsComponent {
   deletingItem: any = null;
   selected:any={}
 
+
   ngOnInit() {
     this.getCandidates();
   }
-
   getCandidates() {
     this.api.getWinnerCandidates().subscribe((res: any) => {
       this.lists = res.data
@@ -30,17 +31,12 @@ export class ResultsComponent {
     })
   }
 
-
-
-
-
   viewItem(item: any) { 
     this.selected = item.winner;
-    console.log( this.selected)
    
   }
 
-
-
-
+  goBack() {
+    this.router.navigate(['/'])
+  }
 }

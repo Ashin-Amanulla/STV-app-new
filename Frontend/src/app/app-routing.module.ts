@@ -5,6 +5,8 @@ import { LoginComponent } from './modules/login/login.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { AuthGuard } from './auth/auth.guard';
 import { RoleGuard } from './auth/role.guard';
+import { ResultsComponent } from './modules/results/results.component';
+import { CandidatesHubComponent } from './modules/candidates-hub/candidates-hub.component';
 
 const routes: Routes = [
   {
@@ -12,6 +14,12 @@ const routes: Routes = [
   },
   {
     path: 'login', component: LoginComponent
+  },
+  {
+    path: 'results', component: ResultsComponent
+  },
+  {
+    path: 'candidates-hub', component: CandidatesHubComponent
   },
   {
     path: 'user',

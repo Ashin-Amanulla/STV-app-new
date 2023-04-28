@@ -67,7 +67,7 @@
                     election.nomination_end | dateFormatter : "MMMM DD , HH:mm"
                   }}</strong> <br />
                   <br /><br />
-                  <a style="cursor: pointer"
+                  <a style="cursor: pointer" (click)="hub()"
                     ><span class="p-2 badge text-bg-dark"
                       >Candidate Hub &nbsp;
                       <i class="bi bi-arrow-right"></i> </span
@@ -136,7 +136,9 @@
                 <ul class="actions"
                 *ngIf="showResultsButton">
                   <li>
-                    <a  class="button icon solid fa-eye"
+                    <a 
+                    (click)="results()"
+                    class="button icon solid fa-eye"
                       >View Results
                     </a>
                   </li>

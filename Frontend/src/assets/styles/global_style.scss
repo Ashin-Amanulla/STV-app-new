@@ -1940,13 +1940,30 @@ input, select, textarea {
 /* Nav */
 
 	#nav {
-		position: absolute;
-		top: 3em;
-		left: 0;
+		// position: absolute;
+		top: 1em;
+		// left: 0;
 		width: 100%;
 		cursor: default;
+		display: flex;
+		justify-content:space-between ;
+		align-items: center;
+		
 	}
 
+
+
+	#nav>.logo {
+		flex: 1;
+		padding: 0;
+		 margin: 0;
+		text-decoration: none;
+	  }
+
+	  #nav> ul {
+		flex: 1;
+		text-align: center;
+	  }
 		#nav > ul > li {
 			display: inline-block;
 			padding-right: 2em;
@@ -2702,4 +2719,8 @@ input, select, textarea {
 					border-left: 0;
 				}
 
+	}
+
+	.forSpace{
+		margin-top:-50px;
 	}

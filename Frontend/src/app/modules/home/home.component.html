@@ -1,25 +1,26 @@
 <div id="page-wrapper">
   <!-- Header -->
   <section id="header">
-    <div class="container">
+    <div class="container forSpace ">
       <!-- Logo -->
-      <!-- <h1 id="logo">
-        <a routerLink="/">&ldquo; Vote today for a better tomorrow &rdquo;</a>
-      </h1>
-      <p>
-        Leadership is not about being in charge. It's about taking care of those
-        in your charge.
-      </p> -->
+      
+        
+     
+     
 
       <!-- Nav -->
       <nav id="nav">
+        <span class="logo" routerLink="/">
+          <img width="150px" src="../../../assets/images/logo.png"/>
+        </span>
         <ul>
           <li>
             <a class="icon solid fa-home" routerLink="/"><span>Home</span></a>
           </li>
 
           <li>
-            <a class="icon solid fa-volume-high" style="cursor: pointer;" (click)="scroll(voting)"
+            <a (click)="hub()"
+             class="icon solid fa-volume-high" style="cursor: pointer;" (click)="scroll(voting)"
               ><span>Candidate Hub</span></a
             >
           </li>

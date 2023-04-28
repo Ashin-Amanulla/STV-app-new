@@ -54,6 +54,8 @@ export class UserHomeComponent {
   
     }
 
-  
+    hub(){
+      this.router.navigate(['/candidates-hub']) 
+    }
 
 }

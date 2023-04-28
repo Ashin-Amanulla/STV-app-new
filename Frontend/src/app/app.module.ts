@@ -12,6 +12,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AdminService } from './services/admin.service';
 import { TokenInterceptorService } from './auth/token-interceptor.service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ResultsComponent } from './modules/results/results.component';
+import { CandidatesHubComponent } from './modules/candidates-hub/candidates-hub.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     HomeComponent,
     LoginComponent,
     PageNotFoundComponent,
+    ResultsComponent,
+    CandidatesHubComponent
 
   ],
   imports: [

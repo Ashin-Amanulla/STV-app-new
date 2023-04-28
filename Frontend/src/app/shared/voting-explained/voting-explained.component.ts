@@ -21,6 +21,10 @@ export class VotingExplainedComponent {
    this.router.navigate(['/user/nomination']) 
   }
 
+  results() {
+    this.router.navigate(['/results']) 
+   }
+
   ngOnInit() {
     this.api.getElectionList().subscribe((res: any) => {
       this.election = res.data[0];
@@ -53,5 +57,8 @@ export class VotingExplainedComponent {
 
   login(){
     this.router.navigate(['/login']) 
+  }
+  hub(){
+    this.router.navigate(['/candidates-hub']) 
   }
 }
