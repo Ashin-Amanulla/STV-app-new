@@ -3,6 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { Candidate } from 'src/app/interface/candidate';
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-candidate',
   templateUrl: './candidate.component.html',
@@ -23,13 +27,17 @@ export class CandidateComponent {
   isDisabled: boolean = true;
   showVotingButton: boolean = false
   election: any
-  constructor(private router: Router, private apiAdmin: AdminService, private api: UserService, private route: ActivatedRoute) { }
+  userEmail:any
+  constructor(private location: Location,private router: Router, private apiAdmin: AdminService, private api: UserService, private route: ActivatedRoute , private authApi:AuthService) { }
 
   ngOnInit() {
     this.position = localStorage.getItem('position')
+    this.userEmail = this.authApi.emailFetch()
     this.pos = this.route.snapshot.paramMap.get('position');
     this.api.getCandidates(this.position).subscribe((res: any) => {
       this.data = res;
+
+
     })
 
     this.apiAdmin.getElectionList().subscribe((res: any) => {
@@ -70,12 +78,24 @@ export class CandidateComponent {
   }
 
   abstain() {
-    let email = 'ashdsd2n@gmail.com'
+    let email = this.userEmail
     this.selectedOrder = []
     let data = { voters: email, votes: this.selectedOrder }
     if (window.confirm("Are tou sure you want to abstain?")) {
-      this.api.submitVotes(data, this.position).subscribe((res: any) => {
-        console.log(res)
+      this.api.submitVotes(data, this.position).subscribe({
+
+        next: (res: any) => {
+          Swal.fire('Success', `${res.message}`, 'success')
+        },
+        error: (err: any) => {
+          console.log(err.error)
+          Swal.fire('Failed', `${err.error}`, 'error')
+          this.location.back();
+  
+        },
+        complete:()=>{
+          this.location.back();
+        }
       })
     }
   }
@@ -86,12 +106,24 @@ export class CandidateComponent {
   }
 
   submit() {
-    let email = 'ashin@gmail.com'
+    let email = this.userEmail
 
     let data = { voters: email, votes: this.selectedOrder }
     if (window.confirm("Are tou sure you want to submit?")) {
-      this.api.submitVotes(data, this.position).subscribe((res: any) => {
-        console.log(res)
+      this.api.submitVotes(data, this.position).subscribe({
+
+        next: (res: any) => {
+          Swal.fire('Success', `${res.message}`, 'success')
+        },
+        error: (err: any) => {
+          console.log(err.error)
+          Swal.fire('Failed', `${err.error}`, 'error')
+          this.location.back();
+  
+        },
+        complete:()=>{
+          this.location.back();
+        }
       })
     }
   }

@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
+import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
+
+
 @Component({
   selector: 'app-nomination-form',
   templateUrl: './nomination-form.component.html',
@@ -14,7 +18,7 @@ export class NominationFormComponent {
   selectedItem: any
   selectedId: any
 
-  constructor(private router: Router, private api: AdminService, private fb: FormBuilder) {
+  constructor(private location: Location,private router: Router, private api: AdminService, private fb: FormBuilder) {
     this.myFormGroup = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
@@ -43,7 +47,23 @@ export class NominationFormComponent {
     this.myFormGroup.value.position = this.selectedItem.title;
     this.myFormGroup.value.posRef = this.selectedId;
 
-    this.api.applyCandidate(value,this.selectedId).subscribe((res: any) => { console.log(res) });
+    this.api.applyCandidate(value,this.selectedId) .subscribe({
+
+      next: (res: any) => {
+        this.myFormGroup.reset();
+        Swal.fire('Success', `${res.message}`, 'success')
+      },
+      error: (err: any) => {
+        console.log(err.error)
+        this.myFormGroup.reset();
+        Swal.fire('Failed', `${err.error}`, 'error')
+        this.location.back();
+
+      },
+      complete:()=>{
+        this.location.back();
+      }
+    })
   }
 
   onSelectionChange() {

@@ -5,6 +5,12 @@ const { Candidate, Position } = require('../models/declare-vote')
 router.post('/:id', async (req, res) => {
     try {
         let id = req.params.id
+        let email = req.body.email
+
+
+        const checkCandidate = await Candidate.findOne({ email: email })
+        if (checkCandidate && checkCandidate.posRef == id) throw ('Already applied for the position!')
+
         const candidate = new Candidate(req.body)
         let savedCandidate = await candidate.save();
 
@@ -149,13 +155,13 @@ router.post('/votes/:posId', async (req, res) => {
     try {
         let id = req.params.posId
         let { voters, votes } = req.body
-
+console.log(voters,votes)
         const checkEmail = await Position.findById(id)
         if (!checkEmail) throw ('No such Position found')
 
         const voterIndex = checkEmail.voters.indexOf(voters)
-        if(voterIndex !== -1) throw ('Already Voted for position')
-       
+        if (voterIndex !== -1) throw ('Already Voted for position')
+
         await Position.updateOne(
             { _id: id },
             {
