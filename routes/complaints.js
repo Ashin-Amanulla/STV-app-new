@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
         await savedItem.save();
 
         await sendTicketNumber(item.email, item.ticketId)
-        res.status(200).json({ message: 'success!',status:true });
+        res.status(200).json({ message: 'Complaint registered!',status:true });
     }
     catch (error) {
         console.log(error)

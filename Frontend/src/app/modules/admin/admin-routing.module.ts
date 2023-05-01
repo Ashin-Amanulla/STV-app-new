@@ -37,6 +37,9 @@ const routes: Routes = [
       {
         path: 'results', component: ResultsComponent
       },
+      {
+        path: '', component: ComplaintsComponent
+      },
       
     ]
   },

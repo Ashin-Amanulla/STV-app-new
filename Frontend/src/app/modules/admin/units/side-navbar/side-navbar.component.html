@@ -28,7 +28,7 @@
         </button>
         <a class="flex ml-2 md:mr-24">
           <img
-            src="https://flowbite.com/docs/images/logo.svg"
+            src="../../../../../assets/images/logo.png"
             class="h-8 mr-3"
             alt="FlowBite Logo"
           />
@@ -61,19 +61,19 @@
           >
             <div class="px-4 py-3" role="none">
               <p class="text-sm text-gray-900 dark:text-white" role="none">
-                Neil Sims
+                Admin
               </p>
               <p
                 class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
                 role="none"
               >
-                neil.sims@flowbite.com
+                admin@roehampton.com
               </p>
             </div>
             <ul class="py-1" role="none">
               <li>
                 <a
-                  href="#"
+                  routerLink="/dashboard"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                   role="menuitem"
                   >Dashboard</a
@@ -81,23 +81,16 @@
               </li>
               <li>
                 <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                routerLink="positions"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                   role="menuitem"
                   >Settings</a
                 >
               </li>
+             
               <li>
                 <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                  role="menuitem"
-                  >Earnings</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
+                 (click)="logout()"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                   role="menuitem"
                   >Sign out</a
@@ -120,7 +113,8 @@
       <li>
         <a
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-        >
+       routerLink='/admin'
+          >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -257,7 +251,7 @@
 
       <!-- Complaints  -->
 
-      <li>
+      <!-- <li>
         <a routerLink="complaints"
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
@@ -267,7 +261,7 @@
         
           <span class="ml-3">Complaints</span>
         </a>
-      </li>
+      </li> -->
 <!-- Positions  -->
 
 
@@ -287,7 +281,8 @@
       <li>
         <a
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-        >
+       (click)="logout()"
+          >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

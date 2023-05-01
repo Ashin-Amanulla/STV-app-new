@@ -26,26 +26,20 @@ export class FooterComponent {
 onSubmit(): void {
 
   let value = this.complaintForm.value;
-  this.api.sendComplaints(value).subscribe((res:any) => {
-    if (res.status) {
-      Swal.fire({
-        icon: 'success',
-        title: ' Sent',
-        showConfirmButton: false,
-        timer: 1500
-      }).then(() => {
-        this.complaintForm.reset()
-      })
-    }
-    else {
-      Swal.fire({
-        icon: 'error',
-        title: res.message,
-        showConfirmButton: false,
-        timer: 1500
-      }).then(() => {
-        this.complaintForm.reset()
-      })
+  this.api.sendComplaints(value).subscribe({
+
+    next: (res: any) => {
+      this.complaintForm.reset();
+      Swal.fire('Success', `${res.message}`, 'success')
+    },
+    error: (err: any) => {
+      console.log(err.error)
+      this.complaintForm.reset();
+      Swal.fire('Failed', `${err.error}`, 'error')
+
+    },
+    complete:()=>{
+      console.log('success')
     }
   })
 }

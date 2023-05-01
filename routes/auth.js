@@ -1,7 +1,7 @@
 const express = require('express')
 const Login = require('../models/login')
 const router = express.Router()
-const emailRegex = /^[^\s@]+@([^\s@]+\.)*gmail\.[^\s@]+$/;
+const emailRegex = /^[^\s@]+@([^\s@]+\.)*roehampton\.[^\s@]+$/;
 const { sendMail } = require('../helpers/mail')
 const generateOtp = require('../helpers/generateOTP')
 const { signAccessToken } = require('../middlewares/jwt_helper')
